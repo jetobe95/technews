@@ -3,13 +3,17 @@ import {
     View,
     Text,
     StyleSheet,
-    ActivityIndicator
+    ActivityIndicator,
+    Image
 } from "react-native";
+import color from '../assets/colors/index'
 
 const Loading = (props) => (
     <View style={styles.container}>
-        <ActivityIndicator size='large'/>
-        <Text>Cargando....</Text>
+        <Image  source={require('../assets/TechNewsLogo.png')}
+         style={{resizeMode:'contain'}}/>
+        <ActivityIndicator size='large' color={color.primaryDark}/>
+        {/* <Text>Cargando....</Text> */}
     </View>
 )
 export default Loading;
@@ -18,6 +22,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-around'
     }
 });
