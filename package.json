@@ -1,0 +1,41 @@
+{
+  "name": "new-news-2",
+  "version": "0.0.0",
+  "description": "Ultima modificacion de la app",
+  "author": {
+    "name": "Donayd"
+  },
+  "contributors": [
+    {
+      "email": "alto.951@hotmail.com",
+      "name": "Jeffrey"
+    },
+    {
+      "name": "Donayd"
+    },
+    {
+      "name": "Enrique"
+    },
+    {
+      "name": "Benjamin"
+    }
+  ],
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "expo": "^29.0.0",
+    "lodash": "^4.17.11",
+    "native-base": "2.8.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-native-elements": "0.19.1",
+    "react-navigation": "2.14.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "whatwg-fetch": "2.0.4"
+  }
+}
