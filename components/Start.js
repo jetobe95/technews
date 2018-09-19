@@ -3,11 +3,15 @@ import {
     View,
     Text,
     StyleSheet,
-    ImageBackground,Image
+    ImageBackground,Image,Dimensions
 } from "react-native";
 import { Button } from "react-native-elements";
 import colors from "../assets/colors/index"
-const Start = (props) => (
+const {width}=Dimensions.get('window')
+
+const Start = (props) => {
+    
+    return(
     <ImageBackground 
     imageStyle={{opacity:0.9}}
     source={require('../assets/start.png')}
@@ -22,11 +26,19 @@ const Start = (props) => (
            </Text>
        </View>
        <View style={{alignItems:"center"}}>
-           <Button borderRadius={6} title='Ingresar' style={styles.Boton} backgroundColor={colors.primary}/> 
-           <Button borderRadius={6} title='Crear Cuenta'style={styles.Boton} backgroundColor={colors.secundary} /> 
+           <Button 
+            borderRadius={6} title='Ingresar'
+            onPress={()=>props.navigation.navigate('SignIn')}
+            style={styles.Boton} backgroundColor={colors.primary}/> 
+           <Button 
+            borderRadius={6}
+            onPress={()=>props.navigation.navigate('SignUp')}
+            title='Crear Cuenta'style={styles.Boton} 
+            backgroundColor={colors.secundary} /> 
+           
        </View>
     </ImageBackground>
-    )
+    )}
 export default Start;
 
 const styles = StyleSheet.create({
@@ -38,6 +50,7 @@ const styles = StyleSheet.create({
     },
     Boton:{
         margin:5,
+        width:width*0.9
         
     }
 });

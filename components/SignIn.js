@@ -6,19 +6,16 @@ import {
     TextInput,Dimensions,ImageBackground
 } from "react-native";
 
-import color from '../assets/colors/index'
-import { Feather,Foundation,MaterialCommunityIcons as Mat } from '@expo/vector-icons';
+import color from '../assets/colors'
+import { Feather,Foundation } from '@expo/vector-icons';
 import { Button } from "react-native-elements";
 import { Left } from "native-base";
 const {width}=Dimensions.get('window')
 const SignUp = (props) => (
     <ImageBackground style={styles.container} source={require('../assets/start.png')}>
-        <View style={{alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:color.tercearyDarkRGBA,
-        padding:50,marginHorizontal:4,width:'96%'}}>
-            <Text style={{fontSize:24,color:'white',marginBottom:4}}>Registrate</Text>
-            <Text style={{color:'white'}}>Ingrese sus datos</Text>
+        <View style={{alignItems:'center',justifyContent:'center',backgroundColor:color.tercearyDarkRGBA,padding:50,marginHorizontal:4}}>
+            <Text style={{fontSize:24,color:'white',marginBottom:4}}>Iniciar Sesión</Text>
+            <Text style={{color:'white'}}>Ingrese su usuario y contraseña</Text>
         </View>
         <View 
         style={{justifyContent:'center'
@@ -27,11 +24,7 @@ const SignUp = (props) => (
         ,width:'96%',height:'60%'}}>
             <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Feather style={{fontSize:20}} name='user'/>
-                <TextInput  style={[styles.TextInput]}  placeholder='Nombre'/>
-            </View>
-            <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <Mat style={{fontSize:20}} name='email-outline'/>
-                <TextInput  style={[styles.TextInput]}  placeholder='Email'/>
+                <TextInput  style={[styles.TextInput]}  placeholder='Usuario'/>
             </View>
             <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Foundation style={{fontSize:20}} name='key'/>
@@ -42,7 +35,7 @@ const SignUp = (props) => (
             backgroundColor={color.tercearyDark}
              borderRadius={6} 
              style={styles.botton}
-              title='CREAR'/>
+              title='INICIAR'/>
 
         </View>
     </ImageBackground>
