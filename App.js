@@ -4,6 +4,8 @@ import { Container, Content, Picker, Button, Text } from "native-base";
 import Expo from "expo";
 
 import HomeScreen from "./src/HomeScreen/index.js";
+import Start from "./components/Start.js";
+import SignUp from "./components/SignUp.js";
 
 export default class AwesomeApp extends Component {
   constructor() {
@@ -16,7 +18,8 @@ export default class AwesomeApp extends Component {
     await Expo.Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      Ionicons: require("native-base/Fonts/Ionicons.ttf")
+      Ionicons: require("native-base/Fonts/Ionicons.ttf"),
+      CourierNew: require("./assets/fonts/CourierNew.ttf"),
     });
     this.setState({ isReady: true });
   }
@@ -24,6 +27,6 @@ export default class AwesomeApp extends Component {
     if (!this.state.isReady) {
       return <Expo.AppLoading />;
     }
-    return <HomeScreen />;
+    return <SignUp />;
   }
 }
