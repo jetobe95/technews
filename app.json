@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "new-news-2",
-    "description": "Ultima modificacion de la app",
+    "name": "TechNews",
+    "description": "News Around the world",
     "slug": "snack-SyEb1fPdX",
     "privacy": "unlisted",
     "sdkVersion": "29.0.0",

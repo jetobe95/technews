@@ -3,11 +3,14 @@ import {
     View,
     Text,
     StyleSheet,
-    ImageBackground,Image,Dimensions
+    ImageBackground,
+    Image,
+    Dimensions,
+    StatusBar,Platform
 } from "react-native";
 import { Button } from "react-native-elements";
 import colors from "../assets/colors/index"
-const {width}=Dimensions.get('window')
+const {width,height}=Dimensions.get('window')
 
 const Start = (props) => {
     
@@ -25,12 +28,17 @@ const Start = (props) => {
                 Improving your way to see news
            </Text>
        </View>
-       <View style={{alignItems:"center"}}>
+       <View style={{alignItems:"center",justifyContent:'center',width,height:height*0.3}}>
            <Button 
+           buttonStyle={styles.Boton}
+           fontSize={20}
             borderRadius={6} title='Ingresar'
             onPress={()=>props.navigation.navigate('SignIn')}
             style={styles.Boton} backgroundColor={colors.primary}/> 
            <Button 
+           buttonStyle={styles.Boton}
+
+           fontSize={20}
             borderRadius={6}
             onPress={()=>props.navigation.navigate('SignUp')}
             title='Crear Cuenta'style={styles.Boton} 
@@ -41,6 +49,11 @@ const Start = (props) => {
     )}
 export default Start;
 
+if(Platform.OS=='android'){
+
+}
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -50,7 +63,10 @@ const styles = StyleSheet.create({
     },
     Boton:{
         margin:5,
-        width:width*0.9
+        width:width*0.9,
+        marginVertical:10,
+       
+        
         
     }
 });
