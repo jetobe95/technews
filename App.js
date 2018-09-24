@@ -1,13 +1,8 @@
+import Expo from "expo";
 import React, { Component } from "react";
-import { View } from "react-native";
-import { Container, Content, Picker, Button, Text } from "native-base";
-import Expo,{Asset} from "expo";
-
-import HomeScreen from "./src/HomeScreen/index.js";
-import Start from "./components/Start.js";
-import SignUp from "./components/SignUp.js";
-import {Switch1} from './navigation/Router'
 import Loading from "./components/loading.js";
+import { Switch1 } from './navigation/Router';
+
 export default class AwesomeApp extends Component {
   constructor() {
     super();

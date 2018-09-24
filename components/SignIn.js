@@ -67,6 +67,7 @@ const SignUp = (props) => (
 
                 <Button
                     fontSize={20}
+                    onPress={()=>props.navigation.navigate('ToAppStackNavigator')}
 
                     backgroundColor={color.tercearyDark}
                     borderRadius={6}

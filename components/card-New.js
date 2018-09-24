@@ -1,22 +1,21 @@
+import { Body, Card, CardItem, Content, Left, Text } from 'native-base';
 import * as React from 'react';
-import {Image, View, StyleSheet ,TouchableOpacity} from 'react-native';
-import { Constants } from 'expo';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import { Image, TouchableOpacity ,TouchableWithoutFeedback,TouchableHighlight} from 'react-native';
 
 
 
-export default class New extends React.Component {
+export default class Cardnew extends React.Component {
   render() {
     const {navigation}=this.props;
     const {title,source,description,urlToImage,url}=this.props;
     
    
     return (
-      <TouchableOpacity onPress={()=>navigation.navigate("webview",{title,url,loading:true})}  >
+      <TouchableHighlight  onPress={()=>console.log('ONpress')} onPressIn={()=>navigation.navigate("WebView",{title,url,loading:true})}  >
         <Content padder={false} >
           <Card style={{margin:0,padding:null,backgroundColor:'yellow'}} >            
             <CardItem cardBody>
-              {urlToImage!=null&&<Image source={{uri: urlToImage}} style={{height: 200, width: null, flex: 1,resizeMode:"contain"}}/>}
+              {urlToImage&&<Image source={{uri: urlToImage}} style={{height: 200, width: null, flex: 1,resizeMode:"contain"}}/>}
             </CardItem>
             <CardItem>
               <Left>               
@@ -35,7 +34,7 @@ export default class New extends React.Component {
             </CardItem>
           </Card>
         </Content>
-      </TouchableOpacity>
+      </TouchableHighlight>
     );
   }
 }

@@ -5,15 +5,18 @@ import {
   Dimensions,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,TouchableHighlight
 } from 'react-native';
 import {Col}from 'native-base'
 const { width, height } = Dimensions.get('window');
-const ImageTitle = ({ title, subtitle, image, navigation }) => (
+const ImageTitle = ({ title, subtitle, image, HandlePress }) => (
   <Col style={styles.col}>
-  <TouchableOpacity style={{flex:1}}>
+  <TouchableHighlight 
+  onPress={()=>HandlePress()}
+  style={{flex:1}}>
 
   <ImgBack
+
    source={image}
    
     style={styles.image} 
@@ -23,7 +26,7 @@ const ImageTitle = ({ title, subtitle, image, navigation }) => (
       <Text style={[styles.textImage, { color: 'white',fontWeight:'normal' }]}>{subtitle}</Text>
     </View>
   </ImgBack>
-  </TouchableOpacity>
+  </TouchableHighlight>
 </Col>
 );
 export default ImageTitle

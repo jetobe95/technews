@@ -1,9 +1,11 @@
 import { Grid, Row } from 'native-base';
 import React, { Component } from 'react';
-import {createStackNavigator} from 'react-navigation'
 import { Dimensions, ScrollView, StyleSheet } from 'react-native';
-import ImageTitle from './Image-title';
+import { createStackNavigator } from 'react-navigation';
 import colors from '../assets/colors';
+import ViewListNews from './News-List';
+import ImageTitle from './Image-title';
+import WebView from './WebView';
 
 const { width, height } = Dimensions.get('window');
  class Categories extends Component {
@@ -15,12 +17,15 @@ const { width, height } = Dimensions.get('window');
           <Row>
             
               <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Computer'})}
               title={'Computacion'}
               subtitle='Lo mas reciente'
                 image={require('../assets/tab-icons/Computacion.jpg')}
                
               />
               <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Cellphone'})}
+
               title={'Celulares'}
               subtitle='Lo mas reciente'
               image={require('../assets/tab-icons/Celulares2.jpg')}
@@ -32,6 +37,9 @@ const { width, height } = Dimensions.get('window');
 
           <Row>
             <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Robotic'})}
+
+            
               title={'Robotica'}
               subtitle='Lo mas reciente'
               image={require('../assets/tab-icons/Robotica.jpg')}
@@ -39,6 +47,8 @@ const { width, height } = Dimensions.get('window');
                
               />
             <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Social Networks'})}
+
               title={'Redes'}
               subtitle='Lo mas reciente'
               image={require('../assets/tab-icons/Redes.jpg')}
@@ -49,6 +59,8 @@ const { width, height } = Dimensions.get('window');
 
           <Row>
              <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Technology'})}
+
               title={'Avances'}
               subtitle='Lo mas reciente'
               image={require('../assets/tab-icons/Avances.jpg')}
@@ -56,6 +68,8 @@ const { width, height } = Dimensions.get('window');
                
               />
              <ImageTitle
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Universidad del norte'})}
+
               title={'Uninorte'}
               subtitle='Lo mas reciente'
               image={require('../assets/tab-icons/Uninortek.jpg')}
@@ -104,7 +118,21 @@ export default createStackNavigator({
         color:'white',
       }
     }
+  },
+  ListNews:{
+    screen:ViewListNews,navigationOptions:{
+     
+      headerStyle:{
+        backgroundColor:colors.primaryDark,
+      },
+      headerTitleStyle:{
+        color:'white',
+      }
+    }
+  },
+  WebView:{
+    screen:WebView
   }
 },{
-headerMode:'float'
+headerMode:'float',
 })

@@ -1,16 +1,7 @@
+import { Container } from "native-base";
 import React, { Component } from "react";
-import { 
-    View,
-    Text,
-    StyleSheet,WebView as Web,ActivityIndicator
-} from "react-native";
+import { ActivityIndicator, StyleSheet, WebView as Web } from "react-native";
 
-import {
-   
-    Header,
-    Container
-   
-  } from "native-base";
 
 class WebView extends Component {
     constructor(props){
