@@ -1,10 +1,10 @@
-import React from "react";
-import { View, Text, StyleSheet ,Dimensions} from "react-native";
-import { Button } from "react-native-elements";
-const {width}=Dimensions.get('window');
-const ButtonNews = ({ title, onPress,color }) => (
+import React from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Button } from 'react-native-elements';
+const { width } = Dimensions.get('window');
+const ButtonNews = ({ title, onPress, color }) => (
   <Button
-  textStyle={{paddingBottom:'1%'}}
+    textStyle={{ paddingBottom: '1%' }}
     fontSize={20}
     onPress={onPress}
     backgroundColor={color}
@@ -17,10 +17,8 @@ const ButtonNews = ({ title, onPress,color }) => (
 export default ButtonNews;
 
 const styles = StyleSheet.create({
-  
   botton: {
     margin: '2%',
-    width: width * 0.6,
-
-}
+    width: width * 0.6
+  }
 });
