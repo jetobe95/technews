@@ -14,6 +14,7 @@ import color from '../assets/colors/index'
 import { Feather, Foundation, MaterialCommunityIcons as Mat } from '@expo/vector-icons';
 import { Button } from "react-native-elements";
 import { Left } from "native-base";
+import ButtonNews from "../elements/Button-news";
 const { width } = Dimensions.get('screen')
 const SignUp = (props) => (
     <KeyboardAvoidingView style={styles.container} behavior='position'>
@@ -78,15 +79,13 @@ const SignUp = (props) => (
                         secureTextEntry />
                 </View>
 
-                <Button
-                    fontSize={20}
+                <ButtonNews
                     onPress={()=>props.navigation.navigate('ToAppStackNavigator')}
-                    
-                    backgroundColor={color.tercearyDark}
-                    borderRadius={6}
-                    style={styles.botton}
-                    buttonStyle={styles.botton}
+                    color={color.tercearyDark}
                     title='CREAR' />
+                   
+                    
+                   
 
             </View>
         </ImageBackground>

@@ -9,35 +9,33 @@ import Perfil from '../components/Perfil';
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Start from "../components/Start";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 
 const ToLoginStackNavigator=createStackNavigator({
     Start:{screen:Start,navigationOptions:{header:null}},
-    SignIn:{screen:SignIn,navigationOptions:{title:'Sign In',
+    SignIn:{screen:SignIn,navigationOptions:{title:'Ingreso',
     headerStyle:{
-        backgroundColor:colors.primaryDark,
+        backgroundColor:colors.primary,
       },
       headerTitleStyle:{
         color:'white',
       }
     }},
-    SignUp:{screen:SignUp,navigationOptions:{title:'Sign Up',
+    SignUp:{screen:SignUp,navigationOptions:{title:'Registro',
     headerTitleStyle:{
         color:'white',
       },
     headerStyle:{
-        backgroundColor:colors.primaryDark,
+        backgroundColor:colors.primary,
       }}}
-},{initialRouteName:'Start',mode:'card',headerMode:'screen'})
+},{initialRouteName:'Start',mode:'card',headerMode:'screen',navigationOptions:{
+  headerBackImage:({tintColor,title})=><Ionicons name='md-arrow-round-back'style={{marginHorizontal:4}} size={24} color='white'/>
+
+}})
 const ToAppStackNavigator=createBottomTabNavigator({
-    Categorias:{
-            screen:Categories,navigationOptions:{
-                headerTitle :'Categorias',
-                tabBarIcon:({tintColor})=>(<Feather size={24} name='grid' color={tintColor} />)
-                
-            }
-    },
+    
     Explorar:{
             screen:Explorar,navigationOptions:{
                 title:'Explorar',
@@ -45,6 +43,13 @@ const ToAppStackNavigator=createBottomTabNavigator({
 
             }
     },
+    Categorias:{
+        screen:Categories,navigationOptions:{
+            headerTitle :'Categorias',
+            tabBarIcon:({tintColor})=>(<Feather size={24} name='grid' color={tintColor} />)
+            
+        }
+},
     Buscar:{
             screen:Buscar,navigationOptions:{
                 title:'Buscar',

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 import colors from "../assets/colors/index"
+import ButtonNews from "../elements/Button-news";
 const {width,height}=Dimensions.get('window')
 
 const Start = (props) => {
@@ -28,21 +29,23 @@ const Start = (props) => {
                 Improving your way to see news
            </Text>
        </View>
-       <View style={{alignItems:"center",justifyContent:'center',width,height:height*0.3}}>
-           <Button 
-           buttonStyle={styles.Boton}
-           fontSize={20}
-            borderRadius={6} title='Ingresar'
+       <View 
+       style={
+           {alignItems:"center",
+           justifyContent:'center',
+            width,height:height*0.3}}>
+           <ButtonNews 
+            title='Ingresar'
             onPress={()=>props.navigation.navigate('SignIn')}
-            style={styles.Boton} backgroundColor={colors.primary}/> 
-           <Button 
-           buttonStyle={styles.Boton}
+            color={colors.primary}/> 
+           <ButtonNews 
 
-           fontSize={20}
-            borderRadius={6}
             onPress={()=>props.navigation.navigate('SignUp')}
-            title='Crear Cuenta'style={styles.Boton} 
-            backgroundColor={colors.secundary} /> 
+            title='Crear Cuenta'
+            style={styles.Boton} 
+            color={colors.secundary} 
+
+            /> 
            
        </View>
     </ImageBackground>

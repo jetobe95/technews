@@ -5,9 +5,15 @@ import React from "react";
 import { RefreshControl, SafeAreaView as Safe, ScrollView ,ActivityIndicator,FlatList,Text,View} from "react-native";
 import New from "./card-New";
 import{Divider} from 'react-native-elements'
-const generateURL=({language='es',q,pageSize=15,page=1})=>(
-  `https://newsapi.org/v2/everything?page=${page}&language=${language}&q=${q}&pageSize=${pageSize}&apiKey=60a49976bbd7461fabb075d1d4c35371`
-)
+const generateURL=({language='es',q,pageSize=5,page=1})=>{
+  
+  if (q=='technology') {
+   return `https://newsapi.org/v2/top-headlines?page=${page}&pageSize=${pageSize}&category=${q}&apiKey=60a49976bbd7461fabb075d1d4c35371`
+    
+  }
+  return (
+  `https://newsapi.org/v2/top-headlines?page=${page}&q=${q}&pageSize=${pageSize}&apiKey=60a49976bbd7461fabb075d1d4c35371`
+)}
 
 class ViewListNews extends React.Component {
   static navigationOptions=({navigation})=>({
@@ -43,7 +49,7 @@ class ViewListNews extends React.Component {
   }
   componentDidMount() {
     
-    const q=this.props.navigation.getParam('q','News');
+    const q=this.props.navigation.getParam('q','technology');
     console.log({q})
     const API = generateURL({q})
     axios.get(API)
@@ -89,11 +95,7 @@ class ViewListNews extends React.Component {
             />
           }>
           </FlatList>
-            {/* {data} */}
-          {/* {isRefreshingEnd&&
-          <ActivityIndicator  style={{marginVertical:4}}/>
           
-          } */}
         
       </Container>
       </Safe>

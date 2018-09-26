@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import { 
     View,
-    Text,
     StyleSheet
 } from "react-native";
-
+import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
 class Buscar extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <Container>
+            <Header searchBar rounded>
+              <Item>
+                <Icon name="ios-search" />
+                <Input placeholder="Search" />
+              </Item>
+              <Button transparent>
                 <Text>Buscar</Text>
-            </View>
+              </Button>
+            </Header>
+          </Container>
         );
     }
 }

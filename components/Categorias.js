@@ -6,6 +6,7 @@ import colors from '../assets/colors';
 import ViewListNews from './News-List';
 import ImageTitle from './Image-title';
 import WebView from './WebView';
+import {Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
  class Categories extends Component {
@@ -68,7 +69,7 @@ const { width, height } = Dimensions.get('window');
                
               />
              <ImageTitle
-              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Universidad del norte'})}
+              HandlePress={()=>this.props.navigation.navigate('ListNews',{q:'Universidad'})}
 
               title={'Uninorte'}
               subtitle='Lo mas reciente'
@@ -110,20 +111,14 @@ const styles = StyleSheet.create({
 export default createStackNavigator({
   Categories:{
     screen:Categories,navigationOptions:{
-      title:'Categorias',
-      headerStyle:{
-        backgroundColor:colors.primaryDark,
-      },
-      headerTitleStyle:{
-        color:'white',
-      }
+      header :null
     }
   },
   ListNews:{
     screen:ViewListNews,navigationOptions:{
      
       headerStyle:{
-        backgroundColor:colors.primaryDark,
+        backgroundColor:colors.primary,
       },
       headerTitleStyle:{
         color:'white',
@@ -134,5 +129,15 @@ export default createStackNavigator({
     screen:WebView
   }
 },{
-headerMode:'float',
+headerMode:'float',navigationOptions:{
+  headerBackTitleStyle:{
+    color:'white'
+  },
+  headerBackTitle:null,
+
+  headerStyle:{
+    backgroundColor:colors.primaryDark,
+  },
+  headerBackImage:({tintColor,title})=><Ionicons style={{marginLeft:10}} name='md-arrow-round-back' size={24} color='white'/>
+}
 })

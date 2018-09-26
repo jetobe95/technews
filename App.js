@@ -1,6 +1,6 @@
 import Expo from "expo";
 import React, { Component } from "react";
-import Loading from "./components/loading.js";
+import Loading from "./components/loading";
 import { Switch1 } from './navigation/Router';
 
 export default class AwesomeApp extends Component {

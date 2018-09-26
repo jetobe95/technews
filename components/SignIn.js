@@ -16,18 +16,24 @@ import color from '../assets/colors'
 import { Feather, Foundation } from '@expo/vector-icons';
 import { Button } from "react-native-elements";
 import { Left } from "native-base";
+import ButtonNews from "../elements/Button-news";
 const { width } = Dimensions.get('screen')
 const SignUp = (props) => (
-    <KeyboardAvoidingView behavior='position' style={styles.container}>
+    <KeyboardAvoidingView behavior='position' 
+    style={styles.container}
+    
+    >
 
         <ImageBackground style={styles.container}  
+        
         source={require('../assets/start.png')}>
             <View style={{
-               
-                 alignItems: 'center',
+                height:'30%',
+               width:'96%',
+            alignItems: 'center',
              justifyContent: 'center', 
              backgroundColor: color.tercearyDarkRGBA,
-              padding: 50, marginHorizontal: 4 }}>
+               }}>
                 <Text style={{ fontSize: 24, color: 'white', marginBottom: 4
                  }}>Iniciar Sesión</Text>
                 <Text style={{ color: 'white' }}>Ingrese su usuario y contraseña</Text>
@@ -65,14 +71,12 @@ const SignUp = (props) => (
                         secureTextEntry />
                 </View>
 
-                <Button
-                    fontSize={20}
+                <ButtonNews
+                   
                     onPress={()=>props.navigation.navigate('ToAppStackNavigator')}
 
-                    backgroundColor={color.tercearyDark}
-                    borderRadius={6}
-                    style={styles.botton}
-                    buttonStyle={styles.botton}
+                    color={color.tercearyDark}
+                    
                     title='INICIAR' />
 
             </View>
@@ -81,15 +85,14 @@ const SignUp = (props) => (
 
 )
 export default SignUp;
-const ancho=Platform.OS==='android'?width:null;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        width
        
-        width:ancho
     },
     TextInput: {
         width: '80%',

@@ -18,7 +18,7 @@ class WebView extends Component {
 
     static navigationOptions=({navigation})=>({
             title:navigation.getParam('title'),
-            headerRight:navigation.getParam('loading')? <ActivityIndicator style={{marginRight:10}} size="small" />:null
+            headerRight:navigation.getParam('loading')? <ActivityIndicator color='white' style={{marginRight:10}} size="small" />:null
     })
     componentDidMount = () => {
      
