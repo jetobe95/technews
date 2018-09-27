@@ -1,23 +1,11 @@
 import { Body, Card, CardItem, Content, Left, Text } from 'native-base';
 import * as React from 'react';
-import {
-  Image,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  TouchableHighlight
-} from 'react-native';
-
-export default class Cardnew extends React.Component {
-  render() {
-    const { navigation } = this.props;
-    const { title, source, description, urlToImage, url } = this.props;
-
-    return (
-      <TouchableHighlight
-        onPress={() => console.log('ONpress')}
-        onPressIn={() =>
-          navigation.navigate('WebView', { title, url, loading: true })
-        }
+import { Image, TouchableHighlight } from 'react-native';
+const Cardnew = ({navigation,title, source:{name}, description, urlToImage, url }) => 
+  (
+    <TouchableHighlight
+        onPress={() => console.log('Onpress')}
+        onPressIn={() => navigation.navigate('WebView', { title, url, loading: true })}
       >
         <Content padder={false}>
           <Card style={{ margin: 0, padding: null, backgroundColor: 'yellow' }}>
@@ -46,7 +34,7 @@ export default class Cardnew extends React.Component {
                   >
                     {title}
                   </Text>
-                  <Text note>{source}</Text>
+                  <Text note>{name}</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -61,5 +49,6 @@ export default class Cardnew extends React.Component {
         </Content>
       </TouchableHighlight>
     );
-  }
-}
+    export default Cardnew;
+    
+    

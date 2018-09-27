@@ -5,7 +5,6 @@ import React from 'react';
 import {
   RefreshControl,
   SafeAreaView as Safe,
-  ScrollView,
   ActivityIndicator,
   FlatList,
   Text,
@@ -13,22 +12,24 @@ import {
 } from 'react-native';
 import New from './card-New';
 import { Divider } from 'react-native-elements';
+import CardnewV2 from './Card-news-version2';
 const generateURL = ({ language = 'es', q, pageSize = 5, page = 1 }) => {
   if (q == 'technology') {
-    return `https://newsapi.org/v2/top-headlines?page=${page}&pageSize=${pageSize}&category=${q}&apiKey=60a49976bbd7461fabb075d1d4c35371`;
+    return `https://newsapi.org/v2/everything?language=es&q=${q}&apiKey=60a49976bbd7461fabb075d1d4c35371`;
   }
-  return `https://newsapi.org/v2/top-headlines?page=${page}&q=${q}&pageSize=${pageSize}&apiKey=60a49976bbd7461fabb075d1d4c35371`;
+  return `https://newsapi.org/v2/everything?language=es&q=${q}&apiKey=60a49976bbd7461fabb075d1d4c35371`;
 };
 
 class ViewListNews extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('q', 'News')
   });
-  _onRefresh = (page = 1) => {
-    const { q } = this.props.navigation.state.params;
+  _onRefresh = () => {
+    const q = this.props.navigation.getParam('q', 'technology');
+
     this.setState({ isRefreshing: true });
-    const API = generateURL({ q: q, page: page });
-    axios(API)
+    const API = generateURL({ q});
+      axios(API)
       .then(resp =>
         this.setState(PrevState => {
           return {
@@ -39,8 +40,7 @@ class ViewListNews extends React.Component {
           };
         })
       )
-      .catch(error => {
-        this.setState({ isRefreshing: false });
+      .catch(error => { this.setState({ isRefreshing: false });
 
         console.warn({ error });
       });
@@ -55,19 +55,16 @@ class ViewListNews extends React.Component {
   };
   componentDidMount() {
     const q = this.props.navigation.getParam('q', 'technology');
-    console.log({ q });
     const API = generateURL({ q });
     axios
       .get(API)
       .then(resp => {
-        console.log(resp);
         this.setState({
           news: resp.data.articles,
           totalResults: resp.data.totalResults
         });
       })
-      .catch(error => console.warn({ error: error }))
-      .then(resp => console.log(resp));
+      .catch(error => console.log({ error: error }))
   }
 
   render() {
@@ -87,19 +84,9 @@ class ViewListNews extends React.Component {
                 <ActivityIndicator />
               </View>
             )}
-            ItemSeparatorComponent={() => <Divider />}
-            keyExtractor={(item, i) => item.publishedAt}
+            keyExtractor={(item, i) => item.url}
             data={news}
-            renderItem={({ item }) => (
-              <New
-                {...this.props}
-                source={item.source.name}
-                title={item.title}
-                description={item.description}
-                urlToImage={item.urlToImage}
-                url={item.url}
-              />
-            )}
+            renderItem={({ item }) => ( <CardnewV2 {...this.props} {...item}/>)}
             refreshControl={
               <RefreshControl
                 refreshing={this.state.isRefreshing}
