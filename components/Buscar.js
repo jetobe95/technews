@@ -43,7 +43,6 @@ class Buscar extends Component {
     const { search: q } = this.state;
 
     axios(generateURL({ q })).then(({ data: { articles, totalResults } }) => {
-      console.log({ totalResults });
       this.setState(() => {
         if (totalResults == 0)
           return { NoResuls: true, loading: false, list: [] };
