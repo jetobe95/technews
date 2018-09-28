@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Switch } from 'react-native';
 import ButtonNews from '../elements/Button-news';
 import { connect } from 'react-redux';
 import { SignIn } from '../redux/actions/actions';
 
 class Perfil extends Component {
+  state={
+    ok:false,
+    ok2:true,
+  }
   render() {
+    const { ok,ok2 } = this.state
     const { navigation, News, User:{user,email,name}, SignOut } = this.props;
 
     return (
@@ -13,8 +18,14 @@ class Perfil extends Component {
         <Text>Bienvenido</Text>
         <Text>{user||name}</Text>
         <Text>{email}</Text>
+        <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
+        <Switch  value={ok} onValueChange={()=>this.setState({ok:!ok})}/>
+        <Switch value={ok2} onValueChange={()=>this.setState({ok2:!ok2})}/>
+
+        </View>
 
         <ButtonNews
+          disabled={!(ok&&ok2)}
           title="Cerrar Sesión"
           color="red"
           onPress={() => {

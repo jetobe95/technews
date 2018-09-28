@@ -6,12 +6,7 @@ import {
   ClearNewsCategories
 } from '../redux/actions/actions';
 import NewsList from '../components/News-List';
-const generateURL = ({ language = 'es', q, pageSize = 5, page = 1 }) => {
-  if (q == 'technology') {
-    return `https://newsapi.org/v2/everything?language=es&q="${q}"&apiKey=60a49976bbd7461fabb075d1d4c35371`;
-  }
-  return `https://newsapi.org/v2/everything?language=es&q="${q}"&apiKey=60a49976bbd7461fabb075d1d4c35371`;
-};
+
 class CategoriasContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('q', 'News')

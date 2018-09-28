@@ -19,7 +19,8 @@ class AuthLoadingScreen extends React.Component {
   };
   componentDidMount() {
     console.log('props', this.props);
-    setTimeout(() => this._bootstrapAsync(), 2000);
+    this._bootstrapAsync()
+    // setTimeout(() => , 200x0);
   }
   render() {
     return <Loading />;

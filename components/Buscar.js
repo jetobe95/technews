@@ -39,32 +39,36 @@ class Buscar extends Component {
     list: [],
     NoResuls: false
   };
+  
   _Search = () => {
     this.setState({ loading: true });
     const { search: q } = this.state;
 
     axios(generateURL({ q })).then(({ data: { articles, totalResults } }) => {
       this.setState(() => {
-        if (totalResults == 0)
-          return { NoResuls: true, loading: false, list: [] };
+        if (totalResults == 0) return { NoResuls: true, loading: false, list: [] };
         return { list: articles, loading: false, NoResuls: false };
       });
     });
   };
 
   render() {
-    const { list: data, NoResuls, loading } = this.state;
+    const { list: data, NoResuls, loading,search } = this.state;
     return (
       <Container>
         <Header searchBar rounded>
           <Item>
             <Icon name="ios-search" />
             <Input
+            value={search}
+             autoFocus
+             clearTextOnFocus
               // onKeyPress={() => this._Search()}
               onChangeText={text => {
                 this.setState({ search: text });
               }}
               onSubmitEditing={() => {
+                if (search==='') return Keyboard.dismiss()
                 this._Search();
               }}
               returnKeyType="search"
@@ -73,7 +77,7 @@ class Buscar extends Component {
               placeholder="Redes Neuronales, Robotica"
             />
           </Item>
-          <Button transparent>
+          <Button transparent onPress={()=>this.setState({search:'',list:[]},()=>Keyboard.dismiss())}>
             <Text style={{ color: 'black', fontSize: 12 }}>Cancelar</Text>
           </Button>
         </Header>
@@ -87,7 +91,7 @@ class Buscar extends Component {
             }
             ListHeaderComponent={() => (
               <View>
-                {NoResuls && <Text>No se Encontraron resultados</Text>}
+                {(NoResuls&&search==='') && <Text>No se Encontraron resultados</Text>}
               </View>
             )}
 

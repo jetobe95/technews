@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -22,7 +22,8 @@ const { width } = Dimensions.get('screen');
 class SignUp extends Component {
   state = {
     user: '',
-    password: ''
+    password: '',
+    loadingRight: false
   };
   render() {
     return (

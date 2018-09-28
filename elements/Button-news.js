@@ -2,8 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 const { width } = Dimensions.get('window');
-const ButtonNews = ({ title, onPress, color }) => (
+const ButtonNews = ({ title, onPress, color,disabled,loadingRight }) => (
   <Button
+    loadingRight={loadingRight}
+    disabled={disabled}
     textStyle={{ paddingBottom: '1%' }}
     fontSize={20}
     onPress={onPress}
