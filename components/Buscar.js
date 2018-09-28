@@ -91,7 +91,7 @@ class Buscar extends Component {
             }
             ListHeaderComponent={() => (
               <View>
-                {(NoResuls&&search==='') && <Text>No se Encontraron resultados</Text>}
+                {(NoResuls&&search!=='') && <Text>No se Encontraron resultados</Text>}
               </View>
             )}
 

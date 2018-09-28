@@ -4,3 +4,4 @@ export const FETCHING_ERROR='FETCHING_ERROR';
 export const CLEAN_CATEGORIES_NEWS='CLEAN_CATEGORIES_NEWS';
 export const SIGN_IN='SIGN_IN';
 export const SIGN_UP='SIGN_UP';
+export const SIGN_OUT='SIGN_OUT';

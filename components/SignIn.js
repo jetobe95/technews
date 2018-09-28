@@ -8,10 +8,10 @@ import {
   Dimensions,
   ImageBackground,
   KeyboardAvoidingView,
-  Platform
+  Alert
 } from 'react-native';
 import { connect } from 'react-redux';
-import { SignIn } from '../redux/actions/actions';
+import { SignIn, SignOut } from '../redux/actions/actions';
 import color from '../assets/colors';
 import { Feather, Foundation } from '@expo/vector-icons';
 import { Button } from 'react-native-elements';
@@ -25,6 +25,23 @@ class SignUp extends Component {
     password: '',
     loadingRight: false
   };
+  componentDidMount() {}
+  SignIn = () => {
+    const {
+      User: { user: userLocal, password: passworLocal },SignIn:Sign
+    } = this.props;
+    const { user, password } = this.state;
+    console.log("estado",this.state,'Props',this.props)
+    if (user === userLocal && password === passworLocal) {
+      Sign()
+      this.props.navigation.navigate('ToAppStackNavigator');
+    }else{
+      Alert.alert('Usuario Invalido')
+    }
+    
+    
+  };
+
   render() {
     return (
       <KeyboardAvoidingView behavior="position" style={styles.container}>
@@ -99,10 +116,7 @@ class SignUp extends Component {
             </View>
 
             <ButtonNews
-              onPress={() => {
-                this.props.SignIn(this.state);
-                this.props.navigation.navigate('ToAppStackNavigator');
-              }}
+              onPress={() => this.SignIn()}
               color={color.tercearyDark}
               title="INICIAR"
             />
@@ -113,12 +127,14 @@ class SignUp extends Component {
   }
 }
 
-const MapStateToProps = state => {
-  return {};
+const MapStateToProps = ({ User }) => {
+  return {
+    User
+  };
 };
 const MapDispatchToProps = dispatch => {
   return {
-    SignIn: ({ user, password }) => dispatch(SignIn({ user, password }))
+    SignIn: () => dispatch(SignOut({ key:true }))
   };
 };
 const SignUpWithRedux = connect(

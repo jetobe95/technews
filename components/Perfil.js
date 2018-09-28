@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet,Switch } from 'react-native';
 import ButtonNews from '../elements/Button-news';
 import { connect } from 'react-redux';
-import { SignIn } from '../redux/actions/actions';
+import { SignIn, SignOut } from '../redux/actions/actions';
 
 class Perfil extends Component {
   state={
@@ -39,7 +39,7 @@ class Perfil extends Component {
 }
 const MapDispatchToProps = dispatch => {
   return {
-    SignOut: ()=>dispatch(SignIn({ user: '', password: '' }))
+    SignOut: ()=>dispatch(SignOut({key:false}))
   };
 };
 export default connect(

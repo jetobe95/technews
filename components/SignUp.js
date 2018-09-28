@@ -16,18 +16,19 @@ import {
 import { connect } from 'react-redux';
 import color from '../assets/colors/index';
 import ButtonNews from '../elements/Button-news';
-import { SignUp as SignUpAction } from '../redux/actions/actions';
+import { SignUp as SignUpAction, SignOut } from '../redux/actions/actions';
 const { width } = Dimensions.get('screen');
 class SignUp extends React.Component {
   state = {
-    name: '',
     password: '',
-    email: ''
+    email: '',
+    user: ''
   };
   render() {
     const {
       navigation: { navigate },
-      SignUpAction:SignUp
+      SignUpAction: SignUp,
+      SignOut
     } = this.props;
     return (
       <KeyboardAvoidingView style={styles.container} behavior="position">
@@ -68,13 +69,13 @@ class SignUp extends React.Component {
             >
               <Feather style={{ fontSize: 17 }} name="user" />
               <TextInput
-                onChangeText={name=> this.setState({name})}
+                onChangeText={user => this.setState({ user })}
                 onSubmitEditing={() => this.email.focus()}
                 returnKeyType="next"
                 style={[styles.TextInput]}
                 autoCapitalize="none"
                 autoCorrect={false}
-                placeholder="Nombre"
+                placeholder="Usuario"
               />
             </View>
             <View
@@ -86,8 +87,7 @@ class SignUp extends React.Component {
             >
               <Mat style={{ fontSize: 17 }} name="email-outline" />
               <TextInput
-                onChangeText={email=> this.setState({email})}
-
+                onChangeText={email => this.setState({ email })}
                 autoCapitalize="none"
                 returnKeyType="next"
                 onSubmitEditing={() => this.password.focus()}
@@ -107,8 +107,7 @@ class SignUp extends React.Component {
             >
               <Foundation style={{ fontSize: 20 }} name="key" />
               <TextInput
-                onChangeText={password=> this.setState({password})}
-
+                onChangeText={password => this.setState({ password })}
                 returnKeyType="go"
                 ref={password => (this.password = password)}
                 style={[styles.TextInput]}
@@ -119,8 +118,10 @@ class SignUp extends React.Component {
 
             <ButtonNews
               onPress={() => {
-                SignUp(this.state);
-                navigate('ToAppStackNavigator')}}
+                SignUp({ ...this.state });
+                SignOut({key:true})
+                navigate('ToAppStackNavigator');
+              }}
               color={color.tercearyDark}
               title="CREAR"
             />
@@ -136,7 +137,9 @@ const MapStateToProps = state => {
 };
 const MapDispacthToProps = dispatch => {
   return {
-    SignUpAction:({name,password,email})=>dispatch(SignUpAction({email,password,name}))
+    SignUpAction: ({ name, password, user, email }) =>
+      dispatch(SignUpAction({ email, user, password, name })),
+      SignOut:()=>dispatch(SignOut({key:true}))
   };
 };
 

@@ -5,7 +5,8 @@ import {
   SIGN_IN,
   SIGN_UP,
   FETCHING,
-  CLEAN_CATEGORIES_NEWS
+  CLEAN_CATEGORIES_NEWS,
+  SIGN_OUT
 } from './actionTypes';
 export const loadNews = news => ({
   type: FETCHING_SUCCESS,
@@ -58,11 +59,15 @@ export const ClearNewsCategories = () => {
 const generateURL = ({q}) => {
   return `https://newsapi.org/v2/everything?language=es&q="${q}"&apiKey=60a49976bbd7461fabb075d1d4c35371`;
 };
-export const SignIn = ({ user, password }) => ({
+export const SignIn = ({ user, password,email,key }) => ({
   type: SIGN_IN,
-  payload: { user, password }
+  payload: { user, password,email,key }
 });
-export const SignUp = ({ password, name, email }) => ({
+export const SignUp = ({ password, user,email }) => ({
   type: SIGN_UP,
-  payload: { password, name, email }
+  payload: { password, user,email }
+});
+export const SignOut = ({ key }) => ({
+  type: SIGN_OUT,
+  payload: { key }
 });
