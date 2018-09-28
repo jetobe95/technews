@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import { Dimensions, ScrollView, StyleSheet } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import colors from '../assets/colors';
-import ViewListNews from './News-List';
+import CategoriesContainer from '../containers/Categorias';
+import NavigationConfig from '../navigation/NavigationConfig';
 import ImageTitle from './Image-title';
 import WebView from './WebView';
-import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
+
 class Categories extends Component {
   render() {
     return (
@@ -25,7 +26,7 @@ class Categories extends Component {
             />
             <ImageTitle
               HandlePress={() =>
-                this.props.navigation.navigate('ListNews', { q: 'Cellphone' })
+                this.props.navigation.navigate('ListNews', { q: 'SmarthPhone' })
               }
               title={'Celulares'}
               subtitle="Lo mas reciente"
@@ -57,7 +58,7 @@ class Categories extends Component {
           <Row>
             <ImageTitle
               HandlePress={() =>
-                this.props.navigation.navigate('ListNews', { q: 'Technology' })
+                this.props.navigation.navigate('ListNews', { q: 'Avances' })
               }
               title={'Avances'}
               subtitle="Lo mas reciente"
@@ -102,7 +103,8 @@ const styles = StyleSheet.create({
     borderRadius: 3
   }
 });
-export default createStackNavigator(
+
+const StackNavigatorCategories = createStackNavigator(
   {
     Categories: {
       screen: Categories,
@@ -111,7 +113,7 @@ export default createStackNavigator(
       }
     },
     ListNews: {
-      screen: ViewListNews,
+      screen: CategoriesContainer,
       navigationOptions: {
         headerStyle: {
           backgroundColor: colors.primary
@@ -125,25 +127,6 @@ export default createStackNavigator(
       screen: WebView
     }
   },
-  {
-    headerMode: 'float',
-    navigationOptions: {
-      headerBackTitleStyle: {
-        color: 'white'
-      },
-      headerBackTitle: null,
-
-      headerStyle: {
-        backgroundColor: colors.primaryDark
-      },
-      headerBackImage: ({ tintColor, title }) => (
-        <Ionicons
-          style={{ marginLeft: 10 }}
-          name="md-arrow-round-back"
-          size={24}
-          color="white"
-        />
-      )
-    }
-  }
+  NavigationConfig()
 );
+export default StackNavigatorCategories;

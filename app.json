@@ -9,6 +9,11 @@
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/TechNewsLogo.png",
+    "splash": {
+      "image": "./assets/icons/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffff"
+    },
     "loading": {
       "icon": "./assets/TechNewsLogo.png",
       "hideExponentText": false,
@@ -23,7 +28,11 @@
       ]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.TechNews.TechNewApp"
+    },
+    "android": {
+      "package": "com.TechNews.TechNewApp"
     }
   }
 }

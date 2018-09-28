@@ -7,7 +7,7 @@ import {
 import colors from '../assets/colors';
 import Buscar from '../components/Buscar';
 import Categories from '../components/Categorias';
-import Explorar from '../components/Explorar';
+import Explorar from '../containers/Explorar';
 import Perfil from '../components/Perfil';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';

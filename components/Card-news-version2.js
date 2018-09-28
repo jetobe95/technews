@@ -1,33 +1,53 @@
-import React from 'react';
-import { View,  StyleSheet, TouchableHighlight } from 'react-native';
+import React, { PureComponent } from 'react';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 import { Card, Divider, Text } from 'react-native-elements';
 import moment from 'moment';
 const defaultImg =
-'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
-const CardnewV2 = ({ urlToImage, description, source, publishedAt, title,navigation,url }) => {
-  const time = moment(publishedAt || moment.now()).fromNow();
+  'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
 
-  return (
-    <TouchableHighlight useForeground 
-     onPressIn={() => navigation.navigate('WebView', { title, url, loading: true })}
-     onPress={() => {}}>
-      <Card
-        featuredTitle={title}
-        featuredTitleStyle={styles.featuredTitleStyle}
-        image={{
-          uri: urlToImage || defaultImg
-        }}
+class CardnewV2 extends PureComponent {
+  render() {
+    const {
+      urlToImage,
+      description,
+      source,
+      publishedAt,
+      title,
+      navigation,
+      url
+    } = this.props;
+    const time = moment(publishedAt || moment.now()).fromNow();
+
+    return (
+      <TouchableHighlight
+        underlayColor="white"
+        onPress={() =>
+          navigation.navigate('WebView', { title, url, loading: true })
+        }
       >
-        <Text style={{ marginBottom: 10 }}>{description || 'Read More..'}</Text>
-        <Divider style={{ backgroundColor: '#dfe6e9' }} />
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={styles.noteStyle}>{source.name.toUpperCase()}</Text>
-          <Text style={styles.noteStyle}>{time}</Text>
-        </View>
-      </Card>
-    </TouchableHighlight>
-  );
-};
+        <Card
+          featuredTitle={title}
+          featuredTitleStyle={styles.featuredTitleStyle}
+          image={{
+            uri: urlToImage || defaultImg
+          }}
+        >
+          <Text style={{ marginBottom: 10 }}>
+            {description || 'Read More..'}
+          </Text>
+          <Divider style={{ backgroundColor: '#dfe6e9' }} />
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
+          >
+            <Text style={styles.noteStyle}>{source.name.toUpperCase()}</Text>
+            <Text style={styles.noteStyle}>{time}</Text>
+          </View>
+        </Card>
+      </TouchableHighlight>
+    );
+  }
+}
+
 export default CardnewV2;
 
 const styles = StyleSheet.create({

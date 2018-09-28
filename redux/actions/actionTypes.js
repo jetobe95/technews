@@ -1,0 +1,6 @@
+export const FETCHING='FETCHING';
+export const FETCHING_SUCCESS='FETCHING_SUCCESS';
+export const FETCHING_ERROR='FETCHING_ERROR';
+export const CLEAN_CATEGORIES_NEWS='CLEAN_CATEGORIES_NEWS';
+export const SIGN_IN='SIGN_IN';
+export const SIGN_UP='SIGN_UP';

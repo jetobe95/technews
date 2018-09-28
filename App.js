@@ -1,8 +1,10 @@
-import Expo from 'expo';
+import Expo, { AppLoading } from 'expo';
 import React, { Component } from 'react';
 import Loading from './components/loading';
 import { Switch1 } from './navigation/Router';
-
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store/index';
+import { PersistGate } from 'redux-persist/integration/react';
 export default class AwesomeApp extends Component {
   constructor() {
     super();
@@ -18,16 +20,29 @@ export default class AwesomeApp extends Component {
       CourierNew: require('./assets/fonts/CourierNew.ttf')
     });
     await Expo.Asset.loadAsync([
+      require('./assets/start.png'),
       require('./assets/logo.png'),
       require('./assets/TechNewsLogo.png'),
-      require('./assets/start.png')
+      require('./assets/tab-icons/Avances.jpg'),
+      require('./assets/tab-icons/Celulares2.jpg'),
+      require('./assets/tab-icons/Computacion.jpg'),
+      require('./assets/tab-icons/Redes.jpg'),
+      require('./assets/tab-icons/Robotica.jpg'),
+      require('./assets/tab-icons/Uninortek.jpg'),
+      require('./assets/tab-icons/Uninorte.png')
     ]);
     this.setState({ isReady: true });
   }
   render() {
     if (!this.state.isReady) {
-      return <Loading />;
+      return <AppLoading   />;
     }
-    return <Switch1 />;
+    return (
+      <Provider store={store}>
+        <PersistGate loading={<Loading/>} persistor={persistor}>
+          <Switch1 />
+        </PersistGate>
+      </Provider>
+    );
   }
 }

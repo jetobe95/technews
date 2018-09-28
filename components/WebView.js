@@ -8,7 +8,6 @@ class WebView extends Component {
     const { title, url } = props.navigation.state.params;
     this.title = title;
     this.url = url;
-    console.log({ title });
     this.state = {
       title: title,
       loading: true

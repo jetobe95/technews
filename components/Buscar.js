@@ -24,6 +24,7 @@ import CardnewV2 from './Card-news-version2';
 import WebView from './WebView';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import colors from '../assets/colors';
+import NavigationConfig from '../navigation/NavigationConfig'
 const generateURL = ({ language = 'es', q, pageSize = 5, page = 1 }) => {
   if (q == 'technology') {
     return `https://newsapi.org/v2/everything?language=es&q="${q}"&apiKey=60a49976bbd7461fabb075d1d4c35371`;
@@ -103,29 +104,8 @@ const StackNavigation={
  Buscar:{ screen:Buscar,navigationOptions:{header:null}},
  WebView:{ screen:WebView},
 }
-const NavigationConfig={
-  navigationOptions: {
-    headerBackTitleStyle: {
-      color: 'white'
-    },
-    headerTitleStyle: {
-      color: 'white'
-    },
-    headerBackTitle: null,
-    headerStyle: {
-      backgroundColor: colors.primaryDark
-    },
-    headerBackImage: ({ tintColor, title }) => (
-      <Ionicons
-        style={{ marginLeft: 10 }}
-        name="md-arrow-round-back"
-        size={24}
-        color="white"
-      />
-    )
-  }
-}
-export default createStackNavigator(StackNavigation,NavigationConfig);
+
+export default createStackNavigator(StackNavigation,NavigationConfig());
 
 const styles = StyleSheet.create({
   container: {

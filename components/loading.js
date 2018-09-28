@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Image } from 'react-native';
-import color from '../assets/colors/index';
+import { ActivityIndicator, Image, StyleSheet, View,Text } from 'react-native';
 
-const Loading = props => (
+const Loading = () => (
   <View style={styles.container}>
     <Image
       source={require('../assets/TechNewsLogo.png')}
       style={{ resizeMode: 'contain' }}
     />
-    <ActivityIndicator size="large" color={color.primaryDark} />
+    <Text>TechNews</Text>
+    <ActivityIndicator size="large" />
   </View>
 );
 export default Loading;

@@ -6,6 +6,7 @@ import Categorias from './Categorias';
 import WebView from './WebView';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import colors from '../assets/colors';
+import NavigationConfig from '../navigation/NavigationConfig';
 
 class Explorar extends Component {
   render() {
@@ -50,4 +51,4 @@ const navigationConfig = {
   }
 };
 
-export default createStackNavigator(Stack, navigationConfig);
+export default createStackNavigator(Stack, NavigationConfig());

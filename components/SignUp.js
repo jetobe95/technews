@@ -1,118 +1,150 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Dimensions,
-  ImageBackground,
-  KeyboardAvoidingView,
-  StatusBar
-} from 'react-native';
-
-import color from '../assets/colors/index';
 import {
   Feather,
   Foundation,
   MaterialCommunityIcons as Mat
 } from '@expo/vector-icons';
-import { Button } from 'react-native-elements';
-import { Left } from 'native-base';
+import React from 'react';
+import {
+  Dimensions,
+  ImageBackground,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from 'react-native';
+import { connect } from 'react-redux';
+import color from '../assets/colors/index';
 import ButtonNews from '../elements/Button-news';
+import { SignUp as SignUpAction } from '../redux/actions/actions';
 const { width } = Dimensions.get('screen');
-const SignUp = props => (
-  <KeyboardAvoidingView style={styles.container} behavior="position">
-    <ImageBackground
-      style={styles.container}
-      source={require('../assets/start.png')}
-    >
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: color.tercearyDarkRGBA,
-          padding: 50,
-          marginHorizontal: 4,
-          width: '96%'
-        }}
-      >
-        <Text style={{ fontSize: 24, color: 'white', marginBottom: 4 }}>
-          Registrate
-        </Text>
-        <Text style={{ color: 'white' }}>Ingrese sus datos</Text>
-      </View>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: color.primaryDarkRGBA,
-          width: '96%',
-          height: '60%'
-        }}
-      >
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
+class SignUp extends React.Component {
+  state = {
+    name: '',
+    password: '',
+    email: ''
+  };
+  render() {
+    const {
+      navigation: { navigate },
+      SignUpAction:SignUp
+    } = this.props;
+    return (
+      <KeyboardAvoidingView style={styles.container} behavior="position">
+        <ImageBackground
+          style={styles.container}
+          source={require('../assets/start.png')}
         >
-          <Feather style={{ fontSize: 17 }} name="user" />
-          <TextInput
-            onSubmitEditing={() => this.email.focus()}
-            returnKeyType="next"
-            style={[styles.TextInput]}
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholder="Nombre"
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <Mat style={{ fontSize: 17 }} name="email-outline" />
-          <TextInput
-            autoCapitalize="none"
-            returnKeyType="next"
-            onSubmitEditing={() => this.password.focus()}
-            ref={email => (this.email = email)}
-            style={[styles.TextInput]}
-            autoCorrect={false}
-            keyboardType="email-address"
-            placeholder="Email"
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <Foundation style={{ fontSize: 20 }} name="key" />
-          <TextInput
-            returnKeyType="go"
-            ref={password => (this.password = password)}
-            style={[styles.TextInput]}
-            placeholder="Contraseña"
-            secureTextEntry
-          />
-        </View>
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: color.tercearyDarkRGBA,
+              padding: 50,
+              marginHorizontal: 4,
+              width: '96%'
+            }}
+          >
+            <Text style={{ fontSize: 24, color: 'white', marginBottom: 4 }}>
+              Registrate
+            </Text>
+            <Text style={{ color: 'white' }}>Ingrese sus datos</Text>
+          </View>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: color.primaryDarkRGBA,
+              width: '96%',
+              height: '60%'
+            }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Feather style={{ fontSize: 17 }} name="user" />
+              <TextInput
+                onChangeText={name=> this.setState({name})}
+                onSubmitEditing={() => this.email.focus()}
+                returnKeyType="next"
+                style={[styles.TextInput]}
+                autoCapitalize="none"
+                autoCorrect={false}
+                placeholder="Nombre"
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Mat style={{ fontSize: 17 }} name="email-outline" />
+              <TextInput
+                onChangeText={email=> this.setState({email})}
 
-        <ButtonNews
-          onPress={() => props.navigation.navigate('ToAppStackNavigator')}
-          color={color.tercearyDark}
-          title="CREAR"
-        />
-      </View>
-    </ImageBackground>
-  </KeyboardAvoidingView>
-);
-export default SignUp;
+                autoCapitalize="none"
+                returnKeyType="next"
+                onSubmitEditing={() => this.password.focus()}
+                ref={email => (this.email = email)}
+                style={[styles.TextInput]}
+                autoCorrect={false}
+                keyboardType="email-address"
+                placeholder="Email"
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Foundation style={{ fontSize: 20 }} name="key" />
+              <TextInput
+                onChangeText={password=> this.setState({password})}
+
+                returnKeyType="go"
+                ref={password => (this.password = password)}
+                style={[styles.TextInput]}
+                placeholder="Contraseña"
+                secureTextEntry
+              />
+            </View>
+
+            <ButtonNews
+              onPress={() => {
+                SignUp(this.state);
+                navigate('ToAppStackNavigator')}}
+              color={color.tercearyDark}
+              title="CREAR"
+            />
+          </View>
+        </ImageBackground>
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const MapStateToProps = state => {
+  return {};
+};
+const MapDispacthToProps = dispatch => {
+  return {
+    SignUpAction:({name,password,email})=>dispatch(SignUpAction({email,password,name}))
+  };
+};
+
+const SignUpWithRedux = connect(
+  MapStateToProps,
+  MapDispacthToProps
+)(SignUp);
+export default SignUpWithRedux;
 
 const styles = StyleSheet.create({
   container: {
