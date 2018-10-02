@@ -6,7 +6,8 @@ import {
   SIGN_UP,
   FETCHING,
   CLEAN_CATEGORIES_NEWS,
-  SIGN_OUT
+  SIGN_OUT,
+  HANDLE_SELECT_CATEGORIES_CUSTOM
 } from './actionTypes';
 export const loadNews = news => ({
   type: FETCHING_SUCCESS,
@@ -35,7 +36,7 @@ export const FetchNews = url => axios(url);
 export const Fetcher = q => {
   return dispatch => {
     dispatch(fetching());
-    axios(generateURL({q}))
+    axios(generateURL({ q }))
       .then(({ data: news }) => dispatch(loadNews(news)))
       .catch(error => dispatch(errorFetching(error)));
   };
@@ -43,7 +44,7 @@ export const Fetcher = q => {
 export const FetcherCategories = q => {
   return dispatch => {
     dispatch(fetchingCategories());
-    axios(generateURL({q}))
+    axios(generateURL({ q }))
       .then(({ data: news }) => dispatch(loadNewsCategories(news)))
       .catch(error => dispatch(errorFetchingCategories(error)));
   };
@@ -56,18 +57,22 @@ export const ClearNewsCategories = () => {
   };
 };
 
-const generateURL = ({q}) => {
+const generateURL = ({ q }) => {
   return `https://newsapi.org/v2/everything?language=es&q="${q}"&apiKey=60a49976bbd7461fabb075d1d4c35371`;
 };
-export const SignIn = ({ user, password,email,key }) => ({
+export const SignIn = ({ user, password, email, key }) => ({
   type: SIGN_IN,
-  payload: { user, password,email,key }
+  payload: { user, password, email, key }
 });
-export const SignUp = ({ password, user,email }) => ({
+export const SignUp = ({ password, user, email }) => ({
   type: SIGN_UP,
-  payload: { password, user,email }
+  payload: { password, user, email }
 });
 export const SignOut = ({ key }) => ({
   type: SIGN_OUT,
   payload: { key }
+});
+export const HandleSelectCustomCategorie = ( id ) => ({
+  type: HANDLE_SELECT_CATEGORIES_CUSTOM,
+  payload: { id }
 });

@@ -28,7 +28,7 @@ class CardnewV2 extends PureComponent {
       navigation,
       url
     } = this.props;
-    moment.locale('es');
+    
     const time = moment(publishedAt || Date.now()).fromNow();
 
     return (

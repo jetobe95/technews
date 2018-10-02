@@ -1,7 +1,7 @@
 import { Container } from 'native-base';
 import React, { Component } from 'react';
-import { ActivityIndicator, WebView as Web } from 'react-native';
-
+import { ActivityIndicator, WebView as Web,Share } from 'react-native';
+import Entypo from '@expo/vector-icons/Entypo';
 class WebView extends Component {
   constructor(props) {
     super(props);
@@ -22,9 +22,16 @@ class WebView extends Component {
         style={{ marginRight: 10 }}
         size="small"
       />
-    ) : null
+    ) : <Entypo name='share' 
+      onPress={()=>
+      
+      Share.share({message:`Hey !!! Mira lo que encontré en TechNews ${navigation.getParam('url',' ')}`})}
+      size={24}
+    style={{color:'white',marginRight: 10}}/>
   });
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    
+  };
 
   render() {
     const { title, url } = this.props.navigation.state.params;

@@ -18,10 +18,25 @@ ImageTitle.propTypes = {
   subtitle: string,
   HandlePress: func
 };
-function ImageTitle({ title, subtitle, image, HandlePress }) {
+
+
+
+
+function ImageTitle({ title, subtitle, image, HandlePress,color }) {
   return (
     <Col style={styles.col}>
-      <TouchableHighlight onPress={() => HandlePress()} style={{ flex: 1 }}>
+      <TouchableHighlight
+        onPress={() => HandlePress()}
+        style={{
+         
+
+          
+          margin: 0,
+          marginLeft:1,
+          height: height * 0.3,
+          width: width * 0.5
+        }}
+      >
         <ImgBack
           source={image}
           style={styles.image}

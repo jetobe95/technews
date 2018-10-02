@@ -10,7 +10,7 @@ const StackNavigatorCategories = createStackNavigator(
     Categories: {
       screen: CategoriesLIST,
       navigationOptions: {
-        header: null
+        title: 'Categoria'
       }
     },
     ListNews: {
