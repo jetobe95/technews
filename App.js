@@ -1,9 +1,9 @@
 import Expo, { AppLoading } from 'expo';
 import React, { Component } from 'react';
-import Loading from './components/loading';
-import { Switch1 } from './navigation/Router';
+import Loading from './src/scenes/Loading/index';
+import { Switch1 } from './src/navigation/Router';
 import { Provider } from 'react-redux';
-import { store, persistor } from './redux/store/index';
+import { store, persistor } from './src/services/redux/store/index';
 import { PersistGate } from 'redux-persist/integration/react';
 export default class AwesomeApp extends Component {
   constructor() {
