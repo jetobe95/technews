@@ -105,7 +105,7 @@ const ToAppStackNavigator = createBottomTabNavigator(
       tabStyle: {
         backgroundColor: colors.terceary
       },
-      inactiveTintColor: '#acb0a9',
+      inactiveTintColor: '#757575',
       activeTintColor: 'white'
     }
   }

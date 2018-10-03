@@ -1,14 +1,14 @@
 const colors={
-    primary:'#8bc34a',
-    primaryLight:'#dcedc8',
-    primaryDark:'#689f38',
-    primaryDarkRGBA:'rgba(139,195,74,0.6)',
-    secundary:'#ffc539',
+    primary:'#3F51B5',
+    primaryLight:'#C5CAE9',
+    primaryDark:'#303F9F',
+    primaryDarkRGBA:'rgba(189, 189, 189, 0.6)',
+    secundary:'#448AFF',
     secundaryDark:'#9b6d00',
     secundaryLight: '#ffd163',
-    terceary:'#394fb3',
-    tercearyLight:'#5a6dc2',
-    tercearyDark:'#0a1b6a',
+    terceary:'#BDBDBD',
+    tercearyLight:'#757575',
+    tercearyDark:'#757575',
     tercearyDarkRGBA:'rgba(10,27,106,0.6)',
 
 }
