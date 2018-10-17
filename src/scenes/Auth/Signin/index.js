@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import color from '../../../../assets/colors/index';
 import ButtonNews from '../../../components/Button/index';
 import { SignIn, SignOut } from '../../../services/redux/actions/actions';
+import {signin} from '../../../services/firebase'
 import style from './styles';
 
 const styles = StyleSheet.create(style);
@@ -37,7 +38,18 @@ class SignInC extends Component {
     const { user, password } = this.state;
     console.log('estado', this.state, 'Props', this.props);
     if (user === userLocal && password === passworLocal) {
-      Sign();
+      signin(user,password)
+      .then(function(firebaseUser) {
+        console.log("Logged in!");
+        Sign();
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("errorMessage: " + errorMessage);
+        //ToastAndroid.show('Credenciales incorrectas!', ToastAndroid.SHORT);
+      });
       this.props.navigation.navigate('ToAppStackNavigator');
     } else {
       Alert.alert('Usuario Invalido');
