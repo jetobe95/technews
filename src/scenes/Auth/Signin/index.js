@@ -1,4 +1,8 @@
-import { Feather, Foundation } from '@expo/vector-icons';
+import {
+  Feather,
+  Foundation,
+  MaterialCommunityIcons
+} from '@expo/vector-icons';
 import { func, object } from 'prop-types';
 import React, { Component } from 'react';
 import {
@@ -14,15 +18,19 @@ import { connect } from 'react-redux';
 import color from '../../../../assets/colors/index';
 import ButtonNews from '../../../components/Button/index';
 import { SignIn, SignOut } from '../../../services/redux/actions/actions';
-import {signin} from '../../../services/firebase'
+import { signin } from '../../../services/firebase';
 import style from './styles';
 
 const styles = StyleSheet.create(style);
 
 class SignInC extends Component {
+  constructor(props) {
+    super(props);
+    console.ignoredYellowBox = ['Setting a timer'];
+  }
   state = {
-    user: '',
-    password: '',
+    user: 'admin@gmail.com',
+    password: '123456',
     loadingRight: false
   };
   static propsTypes = {
@@ -37,23 +45,23 @@ class SignInC extends Component {
     } = this.props;
     const { user, password } = this.state;
     console.log('estado', this.state, 'Props', this.props);
-    if (user === userLocal && password === passworLocal) {
-      signin(user,password)
-      .then(function(firebaseUser) {
-        console.log("Logged in!");
-        Sign();
+    // if (user === userLocal && password === passworLocal) {
+    signin(user, password)
+      .then(firebaseUser => {
+        console.log('Logged in!', firebaseUser);
+        Sign(firebaseUser);
+        this.props.navigation.navigate('ToAppStackNavigator');
       })
       .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log("errorMessage: " + errorMessage);
+        console.log('errorMessage: ' + errorMessage);
+        Alert.alert('Usuario Invalido', JSON.stringify(error));
         //ToastAndroid.show('Credenciales incorrectas!', ToastAndroid.SHORT);
       });
-      this.props.navigation.navigate('ToAppStackNavigator');
-    } else {
-      Alert.alert('Usuario Invalido');
-    }
+    // } else {
+    // }
   };
 
   render() {
@@ -101,14 +109,18 @@ class SignInC extends Component {
                 alignItems: 'center'
               }}
             >
-              <Feather style={{ fontSize: 20 }} name="user" />
+              <MaterialCommunityIcons
+                style={{ fontSize: 20 }}
+                name="email-outline"
+              />
               <TextInput
+                keyboardType="email-address"
                 onChangeText={user => this.setState({ user })}
                 autoCapitalize="none"
                 onSubmitEditing={() => this.input.focus()}
                 style={[styles.TextInput]}
                 returnKeyType="next"
-                placeholder="Usuario"
+                placeholder="Correo"
               />
             </View>
             <View
@@ -148,7 +160,7 @@ const MapStateToProps = ({ User }) => {
 };
 const MapDispatchToProps = dispatch => {
   return {
-    SignIn: () => dispatch(SignOut({ key: true }))
+    SignIn: user => dispatch(SignOut({ key: true, user: user.user }))
   };
 };
 const SignUpWithRedux = connect(

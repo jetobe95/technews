@@ -27,7 +27,7 @@ class Perfil extends Component {
     const {
       navigation,
       News,
-      User: { user, email, name },
+      User: { user },
       SignOut,
       HandleSelectCustomCategorie: handle,
       User: { categories }
@@ -42,8 +42,7 @@ class Perfil extends Component {
           <View style={styles.container}>
             <Thumbnail large source={{ uri: uri }} />
             <Text>Bienvenido</Text>
-            <Text>{user || name}</Text>
-            <Text>{email}</Text>
+            <Text>{user.email }</Text>
 
             <FlatList
               data={categories}

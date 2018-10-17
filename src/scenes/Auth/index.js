@@ -10,7 +10,6 @@ import {
   Platform
 } from 'react-native';
 import {object} from 'prop-types';
-
 import colors from '../../../assets/colors/index';
 import ButtonNews from '../../components/Button/index';
 const { width, height } = Dimensions.get('window');

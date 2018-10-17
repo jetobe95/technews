@@ -10,11 +10,15 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  View
+  View,
+  Alert,
+  Image
 } from 'react-native';
 import { connect } from 'react-redux';
 import color from '../../../../assets/colors/index';
 import ButtonNews from '../../../components/Button/index';
+import { signup, create } from '../../../services/firebase';
+
 import {
   SignOut,
   SignUp as SignUpAction
@@ -26,7 +30,46 @@ class SignUp extends React.Component {
   state = {
     password: '',
     email: '',
-    user: ''
+    user: '',
+    loading: false
+  };
+  SignUp = ({ email, password, user: usuario }) => {
+    this.setState({loading:true})
+    const {
+      navigation: { navigate },
+      SignUpAction: SignUp,
+      SignOut
+    } = this.props;
+    signup(email, password)
+    
+      .then(user => {
+        SignUp({ user: user.user });
+        
+        console.log('Firebase user', user);
+        let userInfo = {
+          email: user.user.email,
+          user: usuario,
+          
+          marcadores: []
+        };
+        
+        create(`usuarios/${user.user.uid}`)
+        .update(userInfo)
+        .then(() => {
+          Alert.alert('Su usuario ha sido registrado !!');
+          this.setState({loading:false})
+          navigate('ToAppStackNavigator');
+        })
+        .catch(() => {
+          
+          this.setState({loading:false})
+          Alert.alert('Error registrando usuario')});
+        })
+        .catch(error => {
+          this.setState({loading:false})
+        Alert.alert(`${error}`);
+        console.log('Error', error);
+      });
   };
   render() {
     const {
@@ -119,16 +162,25 @@ class SignUp extends React.Component {
                 secureTextEntry
               />
             </View>
-
-            <ButtonNews
-              onPress={() => {
-                SignUp({ ...this.state });
-                SignOut({ key: true });
-                navigate('ToAppStackNavigator');
-              }}
-              color={color.tercearyDark}
-              title="CREAR"
-            />
+            {this.state.loading ? (
+              <Image
+                style={{ height: 64, width: 64 }}
+                source={{
+                  uri:
+                    'http://www.cronicacampeche.com/wp-content/themes/journal-theme/images/loading.gif'
+                }}
+              />
+            ) : (
+              <ButtonNews
+                onPress={() => {
+                  this.SignUp(this.state);
+                  // return;
+                  SignOut({ key: true });
+                }}
+                color={color.tercearyDark}
+                title="CREAR"
+              />
+            )}
           </View>
         </ImageBackground>
       </KeyboardAvoidingView>

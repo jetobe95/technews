@@ -14,9 +14,10 @@ Button.propTypes = {
   loadingRight: any
 };
 
-function Button({ title, onPress, color, disabled, loadingRight }) {
+function Button({ title, onPress, color, disabled, loadingRight,iconComponent }) {
   return (
     <Btn
+    iconComponent={iconComponent}
       loadingRight={loadingRight}
       disabled={disabled}
       textStyle={{ paddingBottom: '1%' }}
