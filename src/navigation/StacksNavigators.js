@@ -24,7 +24,7 @@ const ToLoginStackNavigator = createStackNavigator(
       navigationOptions: {
         title: 'Ingreso',
         headerStyle: {
-          backgroundColor: colors.primary
+          backgroundColor: colors.primaryLight
         },
         headerTitleStyle: {
           color: 'white'
@@ -39,7 +39,7 @@ const ToLoginStackNavigator = createStackNavigator(
           color: 'white'
         },
         headerStyle: {
-          backgroundColor: colors.primary
+          backgroundColor: colors.primaryDark
         }
       }
     }
