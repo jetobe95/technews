@@ -51,11 +51,15 @@ class SignInC extends Component {
         console.log('Logged in!', firebaseUser);
 
         Sign(firebaseUser);
-        list('usuarios'+firebaseUser.user.uid).once('value',snap=>{
+        list('usuarios/'+firebaseUser.user.uid).once('value',snap=>{
           console.log(snap.val())
+          if (snap.val().super) {
+            
+           return this.props.navigation.navigate('ToAppStackNavigatorSuper');
+          }
+          return this.props.navigation.navigate('ToAppStackNavigator');
+
         })
-        return
-        this.props.navigation.navigate('ToAppStackNavigator');
       })
       .catch(function(error) {
         // Handle Errors here.

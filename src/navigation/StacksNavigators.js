@@ -119,7 +119,7 @@ const ToAppStackNavigatorSuper = createBottomTabNavigator(
       navigationOptions: {
         title: 'Canal',
         tabBarIcon: ({ tintColor }) => (
-          <Feather size={24} name="layer" color={tintColor} />
+          <Feather size={24} name="layers" color={tintColor} />
         )
       }
     },

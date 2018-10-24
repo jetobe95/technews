@@ -1,14 +1,20 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
+import { View, StyleSheet, TouchableHighlight,TouchableOpacity } from 'react-native';
 import { Card, Divider, Text } from 'react-native-elements';
 import { string, func, bool, any, object } from 'prop-types';
 import moment from 'moment';
+
 import style from './styles';
+import colors from '../../../../../assets/colors';
 const styles = StyleSheet.create(style);
 const defaultImg =
   'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
 
 class CardnewV2 extends PureComponent {
+  state={
+    like:false
+  }
   static propTypes = {
     urlToImage: string,
     description: string,
@@ -26,9 +32,10 @@ class CardnewV2 extends PureComponent {
       publishedAt,
       title,
       navigation,
-      url
+      url,
+      favorite = false,
     } = this.props;
-    
+
     const time = moment(publishedAt || Date.now()).fromNow();
 
     return (
@@ -48,7 +55,24 @@ class CardnewV2 extends PureComponent {
           <Text style={{ marginBottom: 10 }}>
             {description || 'Read More..'}
           </Text>
-          <Divider style={{ backgroundColor: '#dfe6e9' }} />
+          <TouchableOpacity 
+          onPress={()=>this.setState({like:!this.state.like})}
+          style={{ flexDirection: 'row',alignItems:'center',justifyContent:'space-around' }}>
+            <Divider style={{ backgroundColor: '#dfe6e9',width:'80%' }} />
+            {this.state.like ? (
+              <Entypo
+                name="star"
+                size={30}
+                style={{ color: colors.secundary }}
+              />
+            ) : (
+              <Entypo
+                name="star-outlined"
+                size={30}
+                style={{ color: colors.secundary }}
+              />
+            )}
+          </TouchableOpacity>
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
