@@ -15,6 +15,7 @@ import SignIn from '../scenes/Auth/Signin/index';
 import SignUp from '../scenes/Auth/Signup/SignUp';
 import Start from '../scenes/Auth/index';
 import Explorar from '../scenes/App/Explorar/index';
+import Canal from '../scenes/App/Canal/index'
 
 const ToLoginStackNavigator = createStackNavigator(
   {
@@ -110,4 +111,55 @@ const ToAppStackNavigator = createBottomTabNavigator(
     }
   }
 );
-export { ToLoginStackNavigator, ToAppStackNavigator };
+// Super Usuarios
+const ToAppStackNavigatorSuper = createBottomTabNavigator(
+  {
+    Canal: {
+      screen: Canal,
+      navigationOptions: {
+        title: 'Canal',
+        tabBarIcon: ({ tintColor }) => (
+          <Feather size={24} name="layer" color={tintColor} />
+        )
+      }
+    },
+    Categorias: {
+      screen: Categories,
+      navigationOptions: {
+        headerTitle: 'Categorias',
+        tabBarIcon: ({ tintColor }) => (
+          <Feather size={24} name="grid" color={tintColor} />
+        )
+      }
+    },
+    Buscar: {
+      screen: Buscar,
+      navigationOptions: {
+        title: 'Buscar',
+        tabBarIcon: ({ tintColor }) => (
+          <Entypo size={24} name="magnifying-glass" color={tintColor} />
+        )
+      }
+    },
+    Perfil: {
+      screen: Perfil,
+      navigationOptions: {
+        title: 'Perfil',
+        tabBarIcon: ({ tintColor }) => (
+          <Feather size={24} name="user" color={tintColor} />
+        )
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      showIcon: true,
+      tabStyle: {
+        backgroundColor: colors.terceary
+      },
+      inactiveTintColor: '#757575',
+      activeTintColor: 'white'
+    }
+  }
+);
+export { ToLoginStackNavigator, ToAppStackNavigator,ToAppStackNavigatorSuper };

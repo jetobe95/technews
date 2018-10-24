@@ -1,5 +1,5 @@
 import { createSwitchNavigator } from 'react-navigation';
-import { ToLoginStackNavigator, ToAppStackNavigator } from './StacksNavigators';
+import { ToLoginStackNavigator, ToAppStackNavigator,ToAppStackNavigatorSuper } from './StacksNavigators';
 import React from 'react';
 import { connect } from 'react-redux';
 import Loading from '../scenes/Loading/index';
@@ -33,6 +33,9 @@ const Switch1 = createSwitchNavigator(
     },
     ToAppStackNavigator: {
       screen: ToAppStackNavigator
+    },
+    ToAppStackNavigatorSuper: {
+      screen: ToAppStackNavigatorSuper
     },
     AuthLoading: {
       screen: AuthLoadingWithRedux

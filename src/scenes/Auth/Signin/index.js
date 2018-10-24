@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import color from '../../../../assets/colors/index';
 import ButtonNews from '../../../components/Button/index';
 import { SignIn, SignOut } from '../../../services/redux/actions/actions';
-import { signin } from '../../../services/firebase';
+import { signin ,list} from '../../../services/firebase';
 import style from './styles';
 
 const styles = StyleSheet.create(style);
@@ -49,7 +49,12 @@ class SignInC extends Component {
     signin(user, password)
       .then(firebaseUser => {
         console.log('Logged in!', firebaseUser);
+
         Sign(firebaseUser);
+        list('usuarios'+firebaseUser.user.uid).once('value',snap=>{
+          console.log(snap.val())
+        })
+        return
         this.props.navigation.navigate('ToAppStackNavigator');
       })
       .catch(function(error) {

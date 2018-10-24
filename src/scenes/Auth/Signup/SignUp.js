@@ -49,6 +49,7 @@ class SignUp extends React.Component {
         let userInfo = {
           email: user.user.email,
           user: usuario,
+          super:false,
           
           marcadores: []
         };
