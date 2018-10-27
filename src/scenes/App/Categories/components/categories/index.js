@@ -9,8 +9,13 @@ const { width, height } = Dimensions.get('window');
 import ImageTitle from './components/Image-title'
 import EmptyList from '../Empty-list';
 const squares = [
+{
+  name: 'Tecnología',
+  id: 0,
+  children:[
   {
     id: 1,
+    name: 'Computacion',
     title: 'Computacion',
     subtitle: 'Lo mas reciente',
     q:'Computer',
@@ -18,6 +23,7 @@ const squares = [
   },
   {
     id: 11,
+    name: 'Celulares',
     title: 'Celulares',
     subtitle: 'Lo mas reciente',
     q:'smartphone',
@@ -25,6 +31,7 @@ const squares = [
   },
   {
     id: 2,
+    name: 'Robotica',
     title: 'Robotica',
     subtitle: 'Lo mas reciente',
     q:'Robotic',
@@ -33,6 +40,7 @@ const squares = [
   },
   {
     id: 3,
+    name: 'Redes Sociales',
     title: 'Redes Sociales',
     subtitle: 'Lo mas reciente',
     q:'Social networks',
@@ -41,6 +49,7 @@ const squares = [
   },
   {
     id: 4,
+    name: 'Avances',
     title: 'Avances',
     subtitle: 'Lo mas reciente',
     q:'Avances',
@@ -49,12 +58,14 @@ const squares = [
   },
   {
     id: 5,
+    name: 'Universidad',
     title: 'Universidad',
     subtitle: 'Lo mas reciente',
     q:'Universidad',
    image:require('./images/Uninortek.jpg')
 
-  }
+  }]
+},
 ];
 class Categories extends Component {
   render() {
