@@ -1,10 +1,8 @@
 import Expo, { AppLoading } from 'expo';
 import React, { Component } from 'react';
-import Loading from './src/scenes/Loading/index';
 import { Switch1 } from './src/navigation/Router';
 import { Provider } from 'react-redux';
-import { store, persistor } from './src/services/redux/store/index';
-import { PersistGate } from 'redux-persist/integration/react';
+import { store } from './src/services/redux/store/index';
 export default class AwesomeApp extends Component {
   constructor() {
     super();
@@ -43,9 +41,7 @@ export default class AwesomeApp extends Component {
     }
     return (
       <Provider store={store}>
-        <PersistGate loading={<Loading/>} persistor={persistor}>
           <Switch1 />
-        </PersistGate>
       </Provider>
     );
   }
