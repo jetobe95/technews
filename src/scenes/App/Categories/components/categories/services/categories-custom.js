@@ -9,7 +9,7 @@ const squares = [
     title: 'Computacion',
     subtitle: 'Lo mas reciente',
     q:'Computer',
-   image:require('../images/Computacion.jpg')
+    image:require('../images/Computacion.jpg')
   },
   {
     id: 11,
@@ -52,7 +52,7 @@ const squares = [
     title: 'Universidad',
     subtitle: 'Lo mas reciente',
     q:'Universidad',
-   image:require('../images/Uninortek.jpg')
+    image:require('../images/Uninortek.jpg')
 
   }]
 },

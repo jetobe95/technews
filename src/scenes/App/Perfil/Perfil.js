@@ -3,9 +3,6 @@ import { View, Text, StyleSheet, Switch,FlatList } from 'react-native';
 import { Container, Header, Content, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import 'core-js/es6/map'
-import 'core-js/es6/symbol'
-import 'core-js/fn/symbol/iterator'
 import {
   SignIn,
   SignOut,
@@ -13,6 +10,14 @@ import {
 } from '../../../services/redux/actions/actions';
 import ButtonNews from '../../../components/Button/index';
 import TitleSwitch from './components/title-switch';
+// symbol polyfills
+global.Symbol = require('core-js/es6/symbol');
+require('core-js/fn/symbol/iterator');
+
+// collection fn polyfills
+require('core-js/fn/map');
+require('core-js/fn/set');
+require('core-js/fn/array/find');
 
 
 class Perfil extends Component {
@@ -28,10 +33,11 @@ class Perfil extends Component {
 
   onSelectedItemsChange = (selectedItems) => {
     this.setState({ selectedItems });
+    return
   }
 
   render() {
-    const { ok, ok2, ok3, ok4, ok5, ok6, selectedItems } = this.state;
+    const { selectedItems } = this.state;
     const {
       navigation,
       News,

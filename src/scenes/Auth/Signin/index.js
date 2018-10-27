@@ -123,6 +123,7 @@ class SignInC extends Component {
                 name="email-outline"
               />
               <TextInput
+              value={this.state.user}
                 keyboardType="email-address"
                 onChangeText={user => this.setState({ user })}
                 autoCapitalize="none"
@@ -141,6 +142,7 @@ class SignInC extends Component {
             >
               <Foundation style={{ fontSize: 20 }} name="key" />
               <TextInput
+                value={this.state.password}
                 onChangeText={password => this.setState({ password })}
                 ref={input => (this.input = input)}
                 returnKeyType="go"
