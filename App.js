@@ -2,7 +2,10 @@ import Expo, { AppLoading } from 'expo';
 import React, { Component } from 'react';
 import { Switch1 } from './src/navigation/Router';
 import { Provider } from 'react-redux';
-import { store } from './src/services/redux/store/index';
+
+import { store, persistor } from './src/services/redux/store/index';
+import { PersistGate } from 'redux-persist/integration/react';
+import { MaterialIcons } from '@expo/vector-icons'
 export default class AwesomeApp extends Component {
   constructor() {
     super();
@@ -19,7 +22,8 @@ export default class AwesomeApp extends Component {
       Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
       Entypo: require('@expo/vector-icons/fonts/Entypo.ttf'),
       Feather: require('@expo/vector-icons/fonts/Feather.ttf'),
-      CourierNew: require('./assets/fonts/CourierNew.ttf')
+      CourierNew: require('./assets/fonts/CourierNew.ttf'),
+      MaterialIcons: require('@expo/vector-icons/fonts/MaterialIcons.ttf')
     });
     await Expo.Asset.loadAsync([
       require('./assets/start.png'),

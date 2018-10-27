@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Switch,FlatList } from 'react-native';
 import { Container, Header, Content, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
-
-
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import 'core-js/es6/map'
+import 'core-js/es6/symbol'
+import 'core-js/fn/symbol/iterator'
 import {
   SignIn,
   SignOut,
@@ -15,6 +17,7 @@ import TitleSwitch from './components/title-switch';
 
 class Perfil extends Component {
   state = {
+    selectedItems: [],
     ok: false,
     ok2: true,
     ok3: true,
@@ -22,8 +25,13 @@ class Perfil extends Component {
     ok5: true,
     ok6: true
   };
+
+  onSelectedItemsChange = (selectedItems) => {
+    this.setState({ selectedItems });
+  }
+
   render() {
-    const { ok, ok2, ok3, ok4, ok5, ok6 } = this.state;
+    const { ok, ok2, ok3, ok4, ok5, ok6, selectedItems } = this.state;
     const {
       navigation,
       News,
@@ -44,7 +52,7 @@ class Perfil extends Component {
             <Text>Bienvenido</Text>
             <Text>{user.email }</Text>
 
-            <FlatList
+            {/*<FlatList
               data={categories}
               keyExtractor={item=>item.id.toString()}
               renderItem={({item})=>
@@ -53,6 +61,17 @@ class Perfil extends Component {
               onValueChange={()=>handle(item.id)}
               />
               }
+            />*/}
+
+            <SectionedMultiSelect
+              items={categories} 
+              uniqueKey='id'
+              subKey='children'
+              selectText='Seleccione las categorias...'
+              showDropDowns={true}
+              readOnlyHeadings={true}
+              onSelectedItemsChange={this.onSelectedItemsChange}
+              selectedItems={this.state.selectedItems}
             />
 
 
