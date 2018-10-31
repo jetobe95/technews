@@ -155,10 +155,10 @@ const ToAppStackNavigatorSuper = createBottomTabNavigator(
     tabBarOptions: {
       showIcon: true,
       tabStyle: {
-        backgroundColor: colors.terceary
+        backgroundColor: 'white',
       },
-      inactiveTintColor: '#757575',
-      activeTintColor: 'white'
+      inactiveTintColor: '#656565',
+      activeTintColor: 'grey'
     }
   }
 );

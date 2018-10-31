@@ -45,7 +45,6 @@ class SignUp extends React.Component {
       .then(user => {
         SignUp({ user: user.user });
         
-        console.log('Firebase user', user);
         let userInfo = {
           email: user.user.email,
           user: usuario,
@@ -69,7 +68,6 @@ class SignUp extends React.Component {
         .catch(error => {
           this.setState({loading:false})
         Alert.alert(`${error}`);
-        console.log('Error', error);
       });
   };
   render() {

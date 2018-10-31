@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import { View, Text, StyleSheet, Switch,FlatList } from 'react-native';
 import { Container, Header, Content, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
@@ -50,35 +50,29 @@ class Perfil extends Component {
       'https://facebook.github.io/react-native/docs/assets/favicon.png'; // obtener link de la imagen de usuario cuando tengamos db
 
     return (
-      <Container>
-        <Header />
-        <Content style={{ marginTop: 20 }}>
+      <Fragment>
+        {/* <Content style={{ marginTop: 20 }}> */}
           <View style={styles.container}>
             <Thumbnail large source={{ uri: uri }} />
             <Text>Bienvenido</Text>
             <Text>{user.email }</Text>
-
-            {/*<FlatList
-              data={categories}
-              keyExtractor={item=>item.id.toString()}
-              renderItem={({item})=>
-              <TitleSwitch 
-              {...item} 
-              onValueChange={()=>handle(item.id)}
-              />
-              }
-            />*/}
+            <View>
 
             <SectionedMultiSelect
-              items={categories} 
-              uniqueKey='id'
-              subKey='children'
-              selectText='Seleccione las categorias...'
-              showDropDowns={true}
-              readOnlyHeadings={true}
-              onSelectedItemsChange={this.onSelectedItemsChange}
-              selectedItems={this.state.selectedItems}
+            styles={{
+              container:{'backgroundColor':'red',flex:0}
+
+            }}
+            items={categories} 
+            uniqueKey='id'
+            subKey='children'
+            selectText='Seleccione las categorias...'
+            showDropDowns={true}
+            readOnlyHeadings={true}
+            onSelectedItemsChange={this.onSelectedItemsChange}
+            selectedItems={this.state.selectedItems}
             />
+            </View>
 
 
         
@@ -93,8 +87,8 @@ class Perfil extends Component {
               }}
             />
           </View>
-        </Content>
-      </Container>
+        {/* </Content> */}
+      </Fragment>
     );
   }
 }

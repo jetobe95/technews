@@ -8,14 +8,12 @@ class AuthLoadingScreen extends React.Component {
 
   _bootstrapAsync = () => {
     const { User: {user,email,key} } = this.props;
-    console.log('props', this.props,{user});
 
     this.props.navigation.navigate(
       key ? 'ToAppStackNavigator' : 'ToLoginStackNavigator'
     );
   };
   componentDidMount() {
-    console.log('props', this.props);
     this._bootstrapAsync()
     // setTimeout(() => , 200x0);
   }

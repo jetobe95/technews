@@ -44,15 +44,12 @@ class SignInC extends Component {
       SignIn: Sign
     } = this.props;
     const { user, password } = this.state;
-    console.log('estado', this.state, 'Props', this.props);
     // if (user === userLocal && password === passworLocal) {
     signin(user, password)
       .then(firebaseUser => {
-        console.log('Logged in!', firebaseUser);
 
         Sign(firebaseUser);
         list('usuarios/'+firebaseUser.user.uid).once('value',snap=>{
-          console.log(snap.val())
           if (snap.val().super) {
             
            return this.props.navigation.navigate('ToAppStackNavigatorSuper');
@@ -65,7 +62,6 @@ class SignInC extends Component {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log('errorMessage: ' + errorMessage);
         Alert.alert('Usuario Invalido', JSON.stringify(error));
         //ToastAndroid.show('Credenciales incorrectas!', ToastAndroid.SHORT);
       });
