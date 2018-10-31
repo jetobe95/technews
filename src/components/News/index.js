@@ -37,7 +37,7 @@ function News(props) {
           )}
           keyExtractor={(item, i) => item.url}
           data={articles}
-          renderItem={({ item }) => <CardnewV2 {...props} {...item} />}
+          renderItem={({ item }) => <CardnewV2  {...props} {...item} />}
           refreshControl={
             <RefreshControl
               refreshing={fetching}

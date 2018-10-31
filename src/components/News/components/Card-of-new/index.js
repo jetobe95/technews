@@ -34,8 +34,16 @@ class CardnewV2 extends PureComponent {
       navigation,
       url,
       favorite = false,
+      saveFavorite=()=>{console.log('Save favorite')}
     } = this.props;
-
+    const json={
+      urlToImage,
+      description,
+      source,
+      publishedAt,
+      title,
+      url,
+    }
     const time = moment(publishedAt || Date.now()).fromNow();
 
     return (
@@ -56,7 +64,7 @@ class CardnewV2 extends PureComponent {
             {description || 'Read More..'}
           </Text>
           <TouchableOpacity 
-          onPress={()=>this.setState({like:!this.state.like})}
+          onPress={()=>{saveFavorite(null,json,this.state.like);this.setState(({like})=>({like:!like}))}}
           style={{ flexDirection: 'row',alignItems:'center',justifyContent:'space-around' }}>
             <Divider style={{ backgroundColor: '#dfe6e9',width:'80%' }} />
             {this.state.like ? (

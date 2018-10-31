@@ -3,17 +3,30 @@ import React, { Component } from 'react'
 import {Modal,View,Text,Dimensions,TouchableOpacity} from 'react-native'
 import {Input,Label,Form,Button,Item} from 'native-base'
 import {EvilIcons} from '@expo/vector-icons';
+
+
+
+import CategoryListPicker from './category-list-picker'
+//Datos de categorias
+import {categorias} from '../components/datos-de-categoria.json'
+
 const screen=Dimensions.get('window');
 const width=screen.width,height=screen.height
+
+
+
 export default class ModalCategory extends Component {
-  render() {
+    
+    render() {
       const {isOpen,handleOpen}=this.props;
     return (
-            <Modal visible={isOpen} transparent animationType='slide'>
+            <Modal visible={isOpen} 
+            transparent 
+            animationType='slide'>
                 <View style={{flex:1,backgroundColor:'#656565',justifyContent:'space-evenly',alignItems:'center'}}>
                 <View 
                    style={{backgroundColor:'white',
-                   width:width*0.9,height:height*0.4,borderRadius:20,
+                   width:width*0.9,height:height*0.9,borderRadius:20,
                    justifyContent:'center',
                    alignItems:'center'
                 }}>
@@ -24,24 +37,10 @@ export default class ModalCategory extends Component {
 
                 <EvilIcons name='close' style={{fontSize:25,}}/>
                 </TouchableOpacity>
-                    <Item floatingLabel>
-                    <Label>Nombre la categoria</Label>
-                    <Input
-                     
-                    style={{width:'50%',}}
-                    />
-                    </Item>
-                   
-                    <Button
-                    style={{width:'90%'}}
-                    info
-                    small
-                    rounded
-                    bordered
-
+                    <View style={{height:'90%',width:'100%',justifyContent:'center',alignItems:'center'}}
                     >
-                    <Text>Cick</Text>
-                    </Button>
+                  <CategoryListPicker data={categorias}/>
+                    </View>
                    </View>
                 </View>
             </Modal>

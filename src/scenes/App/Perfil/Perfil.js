@@ -1,23 +1,17 @@
-import React, { Component,Fragment } from 'react';
-import { View, Text, StyleSheet, Switch,FlatList } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { View, Text, StyleSheet, Switch, FlatList, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { Container, Header, Content, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import { ImagePicker, Permissions } from 'expo';
 import {
   SignIn,
   SignOut,
   HandleSelectCustomCategorie
 } from '../../../services/redux/actions/actions';
+import color from '../../../../assets/colors'
 import ButtonNews from '../../../components/Button/index';
 import TitleSwitch from './components/title-switch';
 // symbol polyfills
-global.Symbol = require('core-js/es6/symbol');
-require('core-js/fn/symbol/iterator');
-
-// collection fn polyfills
-require('core-js/fn/map');
-require('core-js/fn/set');
-require('core-js/fn/array/find');
 
 
 class Perfil extends Component {
@@ -36,6 +30,7 @@ class Perfil extends Component {
     return
   }
 
+
   render() {
     const { selectedItems } = this.state;
     const {
@@ -47,48 +42,51 @@ class Perfil extends Component {
       User: { categories }
     } = this.props;
     const uri =
-      'https://facebook.github.io/react-native/docs/assets/favicon.png'; // obtener link de la imagen de usuario cuando tengamos db
+      'http://icons.iconarchive.com/icons/double-j-design/origami-colored-pencil/256/blue-user-icon.png'; // obtener link de la imagen de usuario cuando tengamos db
 
     return (
-      <Fragment>
-        {/* <Content style={{ marginTop: 20 }}> */}
-          <View style={styles.container}>
-            <Thumbnail large source={{ uri: uri }} />
-            <Text>Bienvenido</Text>
-            <Text>{user.email }</Text>
-            <View>
+      <ImageBackground
+        style={{ flex: 1 }} source={{ uri: "https://digitalpm.es/wp-content/uploads/2017/11/3881153-big-data-wallpaper.jpg" }}>
 
-            <SectionedMultiSelect
-            styles={{
-              container:{'backgroundColor':'red',flex:0}
+        <View style={styles.container}>
+          <View style={{justifyContent:'center',alignItems:'center'}}>
 
-            }}
-            items={categories} 
-            uniqueKey='id'
-            subKey='children'
-            selectText='Seleccione las categorias...'
-            showDropDowns={true}
-            readOnlyHeadings={true}
-            onSelectedItemsChange={this.onSelectedItemsChange}
-            selectedItems={this.state.selectedItems}
-            />
+
+            <TouchableOpacity style={{
+              height: 120, width: 120, backgroundColor: 'white', borderRadius: 60,
+              justifyContent: 'center', alignItems: 'center',marginBottom:10
+            }}>
+              <Image source={{ uri }} style={{ height: 94, width: 94 }} />
+            </TouchableOpacity>
+            <View
+              style={{
+                height: 30, width: 100, backgroundColor: 'white', borderRadius: 4
+                , justifyContent: 'center', alignItems: 'center'
+              }}>
+              <Text style={{ fontStyle: 'italic', fontWeight: 'bold' }}>Super User</Text>
             </View>
 
-
-        
-
-            <ButtonNews
-             
-              title="Cerrar Sesión"
-              color="red"
-              onPress={() => {
-                SignOut();
-                navigation.navigate('ToLoginStackNavigator');
-              }}
-            />
           </View>
-        {/* </Content> */}
-      </Fragment>
+          <View style={{ alignItems: 'center' }}>
+
+            <Text style={{ color: 'white', fontSize: 27, fontWeight: 'bold' }}>Bienvenido</Text>
+            <Text
+              style={{ color: 'white', fontSize: 20 }}
+            >{user.email}</Text>
+          </View>
+
+
+          <ButtonNews
+            textStyle={{ color: color.tercearyDark }}
+            title="Cerrar Sesión"
+            color="white"
+            onPress={() => {
+              SignOut();
+              navigation.navigate('ToLoginStackNavigator');
+            }}
+          />
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -112,6 +110,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'space-evenly'
   }
 });
