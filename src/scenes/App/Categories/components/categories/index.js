@@ -11,62 +11,111 @@ import EmptyList from '../Empty-list';
 import Modal from '../../components/categories/components/Modal-category'
 const squares = [
 {
-  name: 'Tecnología',
-  id: 0,
-  children:[
-  {
-    id: 1,
-    name: 'Computacion',
-    title: 'Computacion',
-    subtitle: 'Lo mas reciente',
-    q:'Computer',
-   image:require('./images/Computacion.jpg')
-  },
-  {
-    id: 11,
-    name: 'Celulares',
-    title: 'Celulares',
-    subtitle: 'Lo mas reciente',
-    q:'smartphone',
-   image:require('./images/Celulares2.jpg')
-  },
-  {
-    id: 2,
-    name: 'Robotica',
-    title: 'Robotica',
-    subtitle: 'Lo mas reciente',
-    q:'Robotic',
-   image:require('./images/Robotica.jpg')
-
-  },
-  {
-    id: 3,
-    name: 'Redes Sociales',
-    title: 'Redes Sociales',
-    subtitle: 'Lo mas reciente',
-    q:'Social networks',
-   image:require('./images/Redes.jpg')
-
-  },
-  {
-    id: 4,
-    name: 'Avances',
-    title: 'Avances',
-    subtitle: 'Lo mas reciente',
-    q:'Avances',
-   image:require('./images/Avances.jpg')
-
-  },
-  {
-    id: 5,
-    name: 'Universidad',
-    title: 'Universidad',
-    subtitle: 'Lo mas reciente',
-    q:'Universidad',
-   image:require('./images/Uninortek.jpg')
-
-  }]
+  id: 1,
+  title: 'Aplicación',
+  subtitle: 'Lo mas reciente',
+  q:'Aplicación',
+  image:require('./images/Computacion.jpg'),
+  visible:true
 },
+{
+  id: 2,
+  title: 'Controversia',
+  subtitle: 'Lo mas reciente',
+  q:'Controversia',
+ image:require('./images/Robotica.jpg'),
+ visible:true
+
+},
+{
+  id: 3,
+  title: 'Empresas Tecnologicas',
+  subtitle: 'Lo mas reciente',
+  q:'Empresas Tecnologicas',
+ image:require('./images/Redes.jpg'),
+ visible:true
+
+},
+{
+  id: 4,
+  title: 'Ingeniería',
+  subtitle: 'Lo mas reciente',
+  q:'Ingeniería',
+  image:require('./images/Avances.jpg'),
+  visible:true
+
+},
+{
+  id: 5,
+  title: 'Robotica',
+ subtitle: 'Lo mas reciente',
+  q:'Robotica',
+ image:require('./images/Uninortek.jpg'),
+ visible:true
+
+},
+{
+  id: 6,
+  title: 'Tecnología medica',
+ subtitle: 'Lo mas reciente',
+  q:'Tecnología medica',
+ image:require('./images/Computacion.jpg'),
+ visible:true
+
+},
+{
+  id: 7,
+  title: 'Tecnología celular',
+ subtitle: 'Lo mas reciente',
+  q:'Tecnología celular',
+ image:require('./images/Robotica.jpg'),
+ visible:true
+
+},
+{
+  id: 8,
+  title: 'Samsung',
+ subtitle: 'Lo mas reciente',
+  q:'Samsung',
+ image:require('./images/Redes.jpg'),
+ visible:true
+
+},
+{
+  id: 9,
+  title: 'Microbotica',
+ subtitle: 'Lo mas reciente',
+  q:'Microbotica',
+ image:require('./images/Avances.jpg'),
+ visible:true
+
+},
+{
+  id: 10,
+  title: 'Obsolecencia programada',
+ subtitle: 'Lo mas reciente',
+  q:'Obsolecencia programada',
+ image:require('./images/Computacion.jpg'),
+ visible:true
+
+},
+{
+  id: 11,
+  title: 'Bionica',
+  subtitle: 'Lo mas reciente',
+  q:'Bionica',
+ image:require('./images/Celulares2.jpg'),
+ visible:true
+},
+{
+  id: 12,
+  title: 'Universidad',
+ subtitle: 'Lo mas reciente',
+  q:'Universidad',
+ image:require('./images/Uninortek.jpg'),
+ visible:true
+
+}
 ];
 class Categories extends Component {
   state={
@@ -88,7 +137,7 @@ class Categories extends Component {
       numColumns={2}
       contentContainerStyle={{ marginRight:1,flexDirection: 'column' }}
       columnWrapperStyle={{ flex: 1 }}
-      data={data||squares}
+      data={squares}
       keyExtractor={item => item.id.toString()}
       renderItem={({ item }) => <ImageTitle 
       HandlePress={() =>

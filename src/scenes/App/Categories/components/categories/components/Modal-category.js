@@ -20,7 +20,7 @@ export default class ModalCategory extends Component {
     render() {
       const {isOpen,handleOpen}=this.props;
     return (
-            <Modal visible={isOpen} 
+            <Modal visible={isOpen} onRequestClose={() => {console.log("Modal has been closed.");}}
             transparent 
             animationType='slide'>
                 <View style={{flex:1,backgroundColor:'#656565',justifyContent:'space-evenly',alignItems:'center'}}>
