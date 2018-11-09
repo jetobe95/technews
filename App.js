@@ -11,7 +11,7 @@ export default class AwesomeApp extends Component {
     this.state = {
       isReady: false
     };
-    console.ignoredYellowBox = ['Setting a timer'];
+    console.disableYellowBox = true;
   }
   
   async componentDidMount() {
