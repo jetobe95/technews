@@ -35,7 +35,8 @@ export default class AwesomeApp extends Component {
         require('./assets/tab-icons/Redes.jpg'),
         require('./assets/tab-icons/Robotica.jpg'),
         require('./assets/tab-icons/Uninortek.jpg'),
-        require('./assets/tab-icons/Uninorte.png')
+        require('./assets/tab-icons/Uninorte.png'),
+        require('./assets/tab-icons/Uninorte.png'),
       ]);
       
     } catch (error) {
@@ -45,7 +46,6 @@ export default class AwesomeApp extends Component {
   }
   render() {
     if (!this.state.isReady) {
-      // return <AppLoading   />;
       return(
         <SafeAreaView style={{flex:1}}>
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
