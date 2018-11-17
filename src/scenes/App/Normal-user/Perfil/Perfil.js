@@ -7,10 +7,9 @@ import {
   SignIn,
   SignOut,
   HandleSelectCustomCategorie
-} from '../../../services/redux/actions/actions';
-import color from '../../../../assets/colors'
-import ButtonNews from '../../../components/Button/index';
-import TitleSwitch from './components/title-switch';
+} from '../../../../services/redux/actions/actions';
+import color from '../../../../../assets/colors'
+import ButtonNews from '../../../../components/Button/index';
 // symbol polyfills
 
 

@@ -21,9 +21,9 @@ import _ from 'lodash';
 import { Constants } from 'expo';
 
 
-import NavigationConfig from '../../../components/Header/index';
-import CardnewV2 from '../../../components/News/components/Card-of-new/index';
-import WebView from '../../../components/Webview/index';
+import NavigationConfig from '../../../../components/Header';
+import CardnewV2 from '../../../../components/News/components/Card-of-new/index';
+import WebView from '../../../../components/Webview/index';
 
 
 const generateURL = ({ language = 'es', q, pageSize = 5, page = 1 }) => {

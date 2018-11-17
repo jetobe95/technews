@@ -1,6 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
 import colors from '../../../../../assets/colors/index';
-import News from '../../../components/News/index';
 import NavigationConfig from '../../../../components/Header/index';
 import WebView from '../../../../components/Webview/index';
 import CategoriesLIST from './components/categories/index';

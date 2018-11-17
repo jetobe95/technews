@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import {
   FetcherCategories,
   ClearNewsCategories
-} from '../../../../../../services/redux/actions/actions';
-import NewsList from '../../../../../../components/News/index';
+} from '../../../../../../../services/redux/actions/actions';
+import NewsList from '../../../../../../../components/News/index';
 
 class Categorias extends Component {
   static navigationOptions = ({ navigation }) => ({
