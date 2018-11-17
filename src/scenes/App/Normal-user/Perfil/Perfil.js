@@ -57,13 +57,7 @@ class Perfil extends Component {
             }}>
               <Image source={{ uri }} style={{ height: 94, width: 94 }} />
             </TouchableOpacity>
-            <View
-              style={{
-                height: 30, width: 100, backgroundColor: 'white', borderRadius: 4
-                , justifyContent: 'center', alignItems: 'center'
-              }}>
-              <Text style={{ fontStyle: 'italic', fontWeight: 'bold' }}>Super User</Text>
-            </View>
+           
 
           </View>
           <View style={{ alignItems: 'center' }}>
