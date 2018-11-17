@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get('window');
 
 import ImageTitle from './components/Image-title'
 import EmptyList from '../Empty-list';
-import Modal from '../../components/categories/components/Modal-category'
+import Modal from '../../scenes/categories/components/Modal-category'
 const images='../../../../../../../assets/images-categories/'
 const squares = [
 {

@@ -2,8 +2,8 @@ import { createStackNavigator } from 'react-navigation';
 import colors from '../../../../../assets/colors/index';
 import NavigationConfig from '../../../../components/Header/index';
 import WebView from '../../../../components/Webview/index';
-import CategoriesLIST from './components/categories/index';
-import Categories from './components/categories/components/Categories'
+import CategoriesLIST from './scenes/categories';
+import Categories from './scenes/categories/components/Categories'
 const StackNavigatorCategories = createStackNavigator(
   {
     Categories: {

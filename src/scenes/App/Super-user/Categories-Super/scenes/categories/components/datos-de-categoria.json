@@ -1,0 +1,87 @@
+{
+    "categorias": [{
+            "label": "Android"
+        },
+        {
+            "label": "App"
+        },
+        {
+            "label": "Avances Tecnológicos"
+        },
+        {
+            "label": "Celulares"
+        },
+        {
+            "label": "Ciberseguridad"
+        },
+        {
+            "label": "Computación"
+        },
+        {
+            "label": "Deporte"
+        },
+        {
+            "label": "Empresas"
+        },
+        {
+            "label": "Energía"
+        },
+        {
+            "label": "Facebook"
+        },
+        {
+            "label": "Google"
+        },
+        {
+            "label": "Imágenes 3D"
+        },
+        {
+            "label": "Ingeniería"
+        },
+        {
+            "label": "Inteligencia Artificial"
+        },
+        {
+            "label": "Internet"
+        },
+        {
+            "label": "IOS"
+        },
+        {
+            "label": "Machine Learning"
+        },
+        {
+            "label": "Medicina"
+        },
+        {
+            "label": "Realidad aumentada"
+        },
+        {
+            "label": "Realidad virtual"
+        },
+        {
+            "label": "Robótica"
+        },
+        {
+            "label": "Tecnología"
+        },
+        {
+            "label": "Televisión"
+        },
+        {
+            "label": "Transporte"
+        },
+        {
+            "label": "Videojuegos"
+        },
+        {
+            "label": "Windows"
+        },
+        {
+            "label": "Whatsapp"
+        },
+        {
+            "label": "Youtube"
+        }
+    ]
+}
