@@ -6,7 +6,7 @@ import {
   SIGN_OUT,
   HANDLE_SELECT_CATEGORIES_CUSTOM
 } from '../actions/actionTypes';
-import InitialStateForCategories from '../../../scenes/App/Categories/components/categories/services/categories-custom';
+import InitialStateForCategories from '../../categories-custom';
 
 const InitialState = {
   user: '',

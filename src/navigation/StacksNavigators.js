@@ -17,7 +17,7 @@ import PerfilNormalUser from '../scenes/App/Normal-user/Perfil/Perfil';
 // Usuario Super User
 import Buscar from '../scenes/App/Super-user/Search';
 // import Perfil from '../scenes/App/Super-user/Perfil';
-import Canal from '../scenes/App/Canal/index'
+import Canal from '../scenes/App/Super-user/Canal'
 import Categorias from '../scenes/App/Super-user/Categories-Super'
 
 // Pantallas de inicio de sesión y Registro

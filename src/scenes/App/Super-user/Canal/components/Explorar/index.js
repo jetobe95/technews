@@ -1,9 +1,9 @@
 import { func } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NewList from '../../../../../components/News/index';
-import { Fetcher } from '../../../../../services/redux/actions/actions';
-import {create} from '../../../../../services/firebase'
+import NewList from '../../../../../../components/News/index';
+import { Fetcher } from '../../../../../../services/redux/actions/actions';
+import {create} from '../../../../../../services/firebase'
 class ExplorarContainer extends Component {
   static propTypes = {
     fetchData: func

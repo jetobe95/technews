@@ -9,13 +9,14 @@ const { width, height } = Dimensions.get('window');
 import ImageTitle from './components/Image-title'
 import EmptyList from '../Empty-list';
 import Modal from '../../components/categories/components/Modal-category'
+const images='../../../../../../../assets/images-categories/'
 const squares = [
 {
   id: 1,
   title: 'Aplicación',
   subtitle: 'Lo mas reciente',
   q:'Aplicación',
-  image:require('./images/Computacion.jpg'),
+  image:require(images+'Computacion.jpg'),
   visible:true
 },
 {
@@ -23,7 +24,7 @@ const squares = [
   title: 'Controversia',
   subtitle: 'Lo mas reciente',
   q:'Controversia',
- image:require('./images/Robotica.jpg'),
+ image:require(images+'Robotica.jpg'),
  visible:true
 
 },
@@ -32,7 +33,7 @@ const squares = [
   title: 'Empresas Tecnologicas',
   subtitle: 'Lo mas reciente',
   q:'Empresas Tecnologicas',
- image:require('./images/Redes.jpg'),
+ image:require(images+'Redes.jpg'),
  visible:true
 
 },
@@ -41,7 +42,7 @@ const squares = [
   title: 'Ingeniería',
   subtitle: 'Lo mas reciente',
   q:'Ingeniería',
-  image:require('./images/Avances.jpg'),
+  image:require(images+'Avances.jpg'),
   visible:true
 
 },
@@ -50,7 +51,7 @@ const squares = [
   title: 'Robotica',
  subtitle: 'Lo mas reciente',
   q:'Robotica',
- image:require('./images/Uninortek.jpg'),
+ image:require(images+'Uninortek.jpg'),
  visible:true
 
 },
@@ -59,7 +60,7 @@ const squares = [
   title: 'Tecnología medica',
  subtitle: 'Lo mas reciente',
   q:'Tecnología medica',
- image:require('./images/Computacion.jpg'),
+ image:require(images+'Computacion.jpg'),
  visible:true
 
 },
@@ -68,7 +69,7 @@ const squares = [
   title: 'Tecnología celular',
  subtitle: 'Lo mas reciente',
   q:'Tecnología celular',
- image:require('./images/Robotica.jpg'),
+ image:require(images+'Robotica.jpg'),
  visible:true
 
 },
@@ -77,7 +78,7 @@ const squares = [
   title: 'Samsung',
  subtitle: 'Lo mas reciente',
   q:'Samsung',
- image:require('./images/Redes.jpg'),
+ image:require(images+'Redes.jpg'),
  visible:true
 
 },
@@ -86,7 +87,7 @@ const squares = [
   title: 'Microbotica',
  subtitle: 'Lo mas reciente',
   q:'Microbotica',
- image:require('./images/Avances.jpg'),
+ image:require(images+'Avances.jpg'),
  visible:true
 
 },
@@ -95,7 +96,7 @@ const squares = [
   title: 'Obsolecencia programada',
  subtitle: 'Lo mas reciente',
   q:'Obsolecencia programada',
- image:require('./images/Computacion.jpg'),
+ image:require(images+'Computacion.jpg'),
  visible:true
 
 },
@@ -104,7 +105,7 @@ const squares = [
   title: 'Bionica',
   subtitle: 'Lo mas reciente',
   q:'Bionica',
- image:require('./images/Celulares2.jpg'),
+ image:require(images+'Celulares2.jpg'),
  visible:true
 },
 {
@@ -112,7 +113,7 @@ const squares = [
   title: 'Universidad',
  subtitle: 'Lo mas reciente',
   q:'Universidad',
- image:require('./images/Uninortek.jpg'),
+ image:require(images+'Uninortek.jpg'),
  visible:true
 
 }
