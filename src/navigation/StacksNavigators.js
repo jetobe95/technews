@@ -16,7 +16,7 @@ import PerfilNormalUser from '../scenes/App/Normal-user/Perfil/Perfil';
 
 // Usuario Super User
 import Buscar from '../scenes/App/Super-user/Search';
-// import Perfil from '../scenes/App/Super-user/Perfil';
+import Perfil from '../scenes/App/Super-user/Perfil/Perfil';
 import Canal from '../scenes/App/Super-user/Canal'
 import Categorias from '../scenes/App/Super-user/Categories-Super'
 
@@ -160,7 +160,7 @@ const ToAppStackNavigatorSuper = createBottomTabNavigator(
       }
     },
     Perfil: {
-      screen: PerfilNormalUser,
+      screen: Perfil,
       navigationOptions: {
         title: 'Perfil',
         tabBarIcon: ({ tintColor }) => (
