@@ -5,17 +5,27 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from 'react-navigation';
-
-
+// Tema
 import colors from '../../assets/colors/index';
-import Buscar from '../scenes/App/Search/index';
-import Categories from '../scenes/App/Categories/index';
-import Perfil from '../scenes/App/Perfil/Perfil';
+
+// Usuario normal
+import CategoriesNormalUser from '../scenes/App/Normal-user/Categories'
+import ExplorarNormalUser from '../scenes/App/Normal-user/Explorar';
+import BuscarNormalUser from '../scenes/App/Normal-user/Search/';
+import PerfilNormalUser from '../scenes/App/Normal-user/Perfil/Perfil';
+
+// Usuario Super User
+import Buscar from '../scenes/App/Super-user/Search';
+// import Perfil from '../scenes/App/Super-user/Perfil';
+import Canal from '../scenes/App/Canal/index'
+import Categorias from '../scenes/App/Super-user/Categories-Super'
+
+// Pantallas de inicio de sesión y Registro
+import Start from '../scenes/Auth/index';
 import SignIn from '../scenes/Auth/Signin/index';
 import SignUp from '../scenes/Auth/Signup/SignUp';
-import Start from '../scenes/Auth/index';
-import Explorar from '../scenes/App/Explorar/index';
-import Canal from '../scenes/App/Canal/index'
+
+
 
 const ToLoginStackNavigator = createStackNavigator(
   {
@@ -61,10 +71,15 @@ const ToLoginStackNavigator = createStackNavigator(
     }
   }
 );
+
+
+
+// Tab navigator del Usuario normal
+
 const ToAppStackNavigator = createBottomTabNavigator(
   {
     Explorar: {
-      screen: Explorar,
+      screen: ExplorarNormalUser,
       navigationOptions: {
         title: 'Explorar',
         tabBarIcon: ({ tintColor }) => (
@@ -73,7 +88,7 @@ const ToAppStackNavigator = createBottomTabNavigator(
       }
     },
     Categorias: {
-      screen: Categories,
+      screen: CategoriesNormalUser,
       navigationOptions: {
         headerTitle: 'Categorias',
         tabBarIcon: ({ tintColor }) => (
@@ -82,7 +97,7 @@ const ToAppStackNavigator = createBottomTabNavigator(
       }
     },
     Buscar: {
-      screen: Buscar,
+      screen: BuscarNormalUser,
       navigationOptions: {
         title: 'Buscar',
         tabBarIcon: ({ tintColor }) => (
@@ -91,7 +106,7 @@ const ToAppStackNavigator = createBottomTabNavigator(
       }
     },
     Perfil: {
-      screen: Perfil,
+      screen: PerfilNormalUser,
       navigationOptions: {
         title: 'Perfil',
         tabBarIcon: ({ tintColor }) => (
@@ -104,14 +119,17 @@ const ToAppStackNavigator = createBottomTabNavigator(
     tabBarOptions: {
       showIcon: true,
       tabStyle: {
-        backgroundColor: colors.terceary
+        backgroundColor: 'white',
       },
-      inactiveTintColor: '#757575',
-      activeTintColor: 'white'
+      inactiveTintColor: '#656565',
+      activeTintColor: 'grey'
     }
   }
 );
-// Super Usuarios
+
+
+
+// Tab Navigator Super Usuarios
 const ToAppStackNavigatorSuper = createBottomTabNavigator(
   {
     Canal: {
@@ -124,7 +142,7 @@ const ToAppStackNavigatorSuper = createBottomTabNavigator(
       }
     },
     Categorias: {
-      screen: Categories,
+      screen: Categorias,
       navigationOptions: {
         headerTitle: 'Categorias',
         tabBarIcon: ({ tintColor }) => (
@@ -142,7 +160,7 @@ const ToAppStackNavigatorSuper = createBottomTabNavigator(
       }
     },
     Perfil: {
-      screen: Perfil,
+      screen: PerfilNormalUser,
       navigationOptions: {
         title: 'Perfil',
         tabBarIcon: ({ tintColor }) => (
