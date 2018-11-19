@@ -6,7 +6,6 @@ import {
   ClearNewsCategories
 } from '../../../../../../../services/redux/actions/actions';
 import NewsList from '../../../../../../../components/News/index';
-
 class Categorias extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('q', 'News')
@@ -20,7 +19,6 @@ class Categorias extends Component {
     const { fetchData } = this.props;
 
     const q = this.props.navigation.getParam('q', 'technology');
-    // const API = generateURL({ q });
     fetchData(q);
   }
   render() {
