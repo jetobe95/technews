@@ -1,41 +1,88 @@
 {
     "categorias":[
         {
-            "label":"Aplicacion"
+            "label":"Android"
         },
         {
-            "label":"Controversia"
+            "label":"App"
         },
         {
-            "label":"Empresas tecnológicas"
+            "label":"Avances Tecnológicos"
         },
         {
-            "label":"Tecnológia ficticia"
+            "label":"Celulares"
         },
         {
-            "label":"Ingeniéria"
+            "label":"Ciberseguridad"
         },
         {
-            "label":"Robotica"
+            "label":"Computación"
         },
         {
-            "label":"Tecnologia Medica"
-        },
-        
-        {
-            "label":"Tecnologia Celular "
+            "label":"Deporte"
         },
         {
-            "label":"Samsung"
-        },{
-            "label":"Microbotica"
+            "label":"Empresas"
         },
         {
-            "label":"Obsolecencia programada"
+            "label":"Energía"
         },
         {
-            "label":"Bionica"
+            "label":"Facebook"
+        },
+        {
+            "label":"Google"
+        },
+        {
+            "label":"Imágenes 3D"
+        },
+        {
+            "label":"Ingeniería"
+        },
+        {
+            "label":"Inteligencia Artificial"
+        },
+        {
+            "label":"Internet"
+        },
+        {
+            "label":"IOS"
+        },
+        {
+            "label":"Machine Learning"
+        },
+        {
+            "label":"Medicina"
+        },
+        {
+            "label":"Realidad aumentada"
+        },
+        {
+            "label":"Realidad virtual"
+        },
+        {
+            "label":"Robótica"
+        },
+        {
+            "label":"Tecnología"
+        },
+        {
+            "label":"Televisión"
+        },
+        {
+            "label":"Transporte"
+        },
+        {
+            "label":"Videojuegos"
+        },
+        {
+            "label":"Windows"
+        },
+        {
+            "label":"Whatsapp"
+        },
+        {
+            "label":"Youtube"
         }
-
     ]
 }
