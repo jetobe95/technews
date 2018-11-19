@@ -1,10 +1,10 @@
-const squares = [
+export const squares = [
   {
     id: 1,
     title: "Aplicación",
     subtitle: "Lo mas reciente",
     q: "aplicación",
-    image: require("./images/app.jpg"),
+    image: require("../images/app.jpg"),
     visible: true
   },
   {
@@ -12,7 +12,7 @@ const squares = [
     title: "Android",
     subtitle: "Lo mas reciente",
     q: "android",
-    image: require("./images/android.jpg"),
+    image: require("../images/android.jpg"),
     visible: true
   },
   {
@@ -20,7 +20,7 @@ const squares = [
     title: "Avances Tecnológicos",
     subtitle: "Lo mas reciente",
     q: "avances",
-    image: require("./images/avancestecnológicos.png"),
+    image: require("../images/avancestecnológicos.png"),
     visible: true
   },
   {
@@ -28,7 +28,7 @@ const squares = [
     title: "Celulares",
     subtitle: "Lo mas reciente",
     q: "celulares",
-    image: require("./images/Celulares.jpg"),
+    image: require("../images/Celulares.jpg"),
     visible: true
   },
   {
@@ -36,7 +36,7 @@ const squares = [
     title: "Ciberseguridad",
     subtitle: "Lo mas reciente",
     q: "ciberseguridad",
-    image: require("./images/ciberseguridad.jpg"),
+    image: require("../images/ciberseguridad.jpg"),
     visible: true
   },
   {
@@ -44,7 +44,7 @@ const squares = [
     title: "Computacion",
     subtitle: "Lo mas reciente",
     q: "computacion",
-    image: require("./images/computacion.jpg"),
+    image: require("../images/computacion.jpg"),
     visible: true
   },
   {
@@ -52,7 +52,7 @@ const squares = [
     title: "Deporte",
     subtitle: "Lo mas reciente",
     q: "deporte",
-    image: require("./images/deporte.jpg"),
+    image: require("../images/deporte.jpg"),
     visible: true
   },
   {
@@ -60,7 +60,7 @@ const squares = [
     title: "Empresas",
     subtitle: "Lo mas reciente",
     q: "empresas",
-    image: require("./images/empresas.jpg"),
+    image: require("../images/empresas.jpg"),
     visible: true
   },
   {
@@ -68,7 +68,7 @@ const squares = [
     title: "Energía",
     subtitle: "Lo mas reciente",
     q: "energía",
-    image: require("./images/energia.jpg"),
+    image: require("../images/energia.jpg"),
     visible: true
   },
   {
@@ -76,7 +76,7 @@ const squares = [
     title: "Facebook",
     subtitle: "Lo mas reciente",
     q: "facebook",
-    image: require("./images/facebook.jpg"),
+    image: require("../images/facebook.jpg"),
     visible: true
   },
   {
@@ -84,7 +84,7 @@ const squares = [
     title: "Google",
     subtitle: "Lo mas reciente",
     q: "google",
-    image: require("./images/google.jpg"),
+    image: require("../images/google.jpg"),
     visible: true
   },
   {
@@ -92,7 +92,7 @@ const squares = [
     title: "Imagenes 3D",
     subtitle: "Lo mas reciente",
     q: "3d",
-    image: require("./images/imagenes3d.jpg"),
+    image: require("../images/imagenes3d.jpg"),
     visible: true
   },
   {
@@ -100,7 +100,7 @@ const squares = [
     title: "Ingeniería",
     subtitle: "Lo mas reciente",
     q: "ingeniería",
-    image: require("./images/ingeniería.jpg"),
+    image: require("../images/ingenieria.jpg"),
     visible: true
   },
   {
@@ -108,7 +108,7 @@ const squares = [
     title: "Inteligencia Artificial",
     subtitle: "Lo mas reciente",
     q: "inteligencia artificial",
-    image: require("./images/inteligenciaartificial.jpg"),
+    image: require("../images/inteligenciaartificial.jpg"),
     visible: true
   },
   {
@@ -116,7 +116,7 @@ const squares = [
     title: "Internet",
     subtitle: "Lo mas reciente",
     q: "internet",
-    image: require("./images/internet.png"),
+    image: require("../images/internet.jpg"),
     visible: true
   },
   {
@@ -124,7 +124,7 @@ const squares = [
     title: "IOS",
     subtitle: "Lo mas reciente",
     q: "ios",
-    image: require("./images/ios.jpg"),
+    image: require("../images/ios.jpg"),
     visible: true
   },
   {
@@ -132,7 +132,7 @@ const squares = [
     title: "Machine Learning",
     subtitle: "Lo mas reciente",
     q: "machine learning",
-    image: require("./images/machinelearning.jpg"),
+    image: require("../images/machinelearning.jpg"),
     visible: true
   },
   {
@@ -140,7 +140,7 @@ const squares = [
     title: "Medicina",
     subtitle: "Lo mas reciente",
     q: "medicina",
-    image: require("./images/medicina.jpg"),
+    image: require("../images/medicina.jpg"),
     visible: true
   },
   {
@@ -148,7 +148,7 @@ const squares = [
     title: "Realidad Aumentada",
     subtitle: "Lo mas reciente",
     q: "realidad aumentada",
-    image: require("./images/realidadaumentada.jpg"),
+    image: require("../images/realidadaumentada.jpg"),
     visible: true
   },
   {
@@ -156,7 +156,7 @@ const squares = [
     title: "Realidad Virtual",
     subtitle: "Lo mas reciente",
     q: "realidad virtual",
-    image: require("./images/realidadvirtual.jpg"),
+    image: require("../images/realidadvirtual.jpg"),
     visible: true
   },
   {
@@ -164,7 +164,7 @@ const squares = [
     title: "Redes Sociales",
     subtitle: "Lo mas reciente",
     q: "redes sociales",
-    image: require("./images/redes.jpg"),
+    image: require("../images/redes.jpg"),
     visible: true
   },
   {
@@ -172,7 +172,7 @@ const squares = [
     title: "Robotica",
     subtitle: "Lo mas reciente",
     q: "robotica",
-    image: require("./images/robotica.jpg"),
+    image: require("../images/robotica.jpg"),
     visible: true
   },
   {
@@ -180,7 +180,7 @@ const squares = [
     title: "Tecnologia",
     subtitle: "Lo mas reciente",
     q: "tecnologia",
-    image: require("./images/tecnologia.jpg"),
+    image: require("../images/tecnologia.jpg"),
     visible: true
   },
   {
@@ -188,7 +188,7 @@ const squares = [
     title: "Televisión",
     subtitle: "Lo mas reciente",
     q: "televisión",
-    image: require("./images/television.jpg"),
+    image: require("../images/television.jpg"),
     visible: true
   },
   {
@@ -196,7 +196,7 @@ const squares = [
     title: "Transporte",
     subtitle: "Lo mas reciente",
     q: "transporte",
-    image: require("./images/transporte.png"),
+    image: require("../images/transporte.jpg"),
     visible: true
   },
   {
@@ -204,7 +204,7 @@ const squares = [
     title: "Videojuegos",
     subtitle: "Lo mas reciente",
     q: "Videojuegos",
-    image: require("./images/videojuegos.jpg"),
+    image: require("../images/videojuegos.jpeg"),
     visible: true
   },
   {
@@ -212,7 +212,7 @@ const squares = [
     title: "Whatsapp",
     subtitle: "Lo mas reciente",
     q: "whatsapp",
-    image: require("./images/whatsapp.jpg"),
+    image: require("../images/whatsapp.jpg"),
     visible: true
   },
   {
@@ -220,7 +220,7 @@ const squares = [
     title: "Windows",
     subtitle: "Lo mas reciente",
     q: "windows",
-    image: require("./images/windows.jpg"),
+    image: require("../images/windows.jpg"),
     visible: true
   },
   {
@@ -228,7 +228,7 @@ const squares = [
     title: "Youtube",
     subtitle: "Lo mas reciente",
     q: "youtube",
-    image: require("./images/youtube.jpg"),
+    image: require("../images/youtube.jpg"),
     visible: true
   },
   {
@@ -236,7 +236,7 @@ const squares = [
     title: "Canal Uninorte",
     subtitle: "Lo mas reciente",
     q: "canal",
-    image: require("./images/uninorte.jpg"),
+    image: require("../images/uninorte.jpg"),
     visible: true
   }
 ];
