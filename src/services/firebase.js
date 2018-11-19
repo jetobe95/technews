@@ -10,6 +10,7 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+
 const authentication=firebase.auth()
 const database=firebase.database()
 
