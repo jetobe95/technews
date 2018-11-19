@@ -2,12 +2,12 @@ import { createStackNavigator } from 'react-navigation';
 import colors from '../../../../../assets/colors/index';
 import NavigationConfig from '../../../../components/Header/index';
 import WebView from '../../../../components/Webview/index';
-import CategoriesLIST from './components/categories/index';
+import ListaDeCategorias from './components/categories/index';
 import Categories from './components/categories/components/Categories'
 const StackNavigatorCategories = createStackNavigator(
   {
     Categories: {
-      screen: CategoriesLIST,
+      screen: ListaDeCategorias,
       navigationOptions: {
         title: 'Categoria'
       }

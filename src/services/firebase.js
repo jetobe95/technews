@@ -26,3 +26,6 @@ export function create(collection){
 export function list(collection){
 	return database.ref(collection)
 }
+export function dataChange(ref,callback){
+  database.ref(ref).on('child_changed',snapshot=>callback(snapshot))
+}
