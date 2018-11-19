@@ -26,8 +26,8 @@ const styles = StyleSheet.create(style);
 
 class SignInC extends Component {
   state = {
-    user: "admin@gmail.com",
-    password: "123456",
+    user: "alto.951@hotmail.com",
+    password: "Colombia2010",
     loadingRight: false,
     ready:true
   };

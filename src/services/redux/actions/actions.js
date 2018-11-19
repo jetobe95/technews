@@ -1,4 +1,9 @@
 import axios from 'axios';
+import {Alert} from 'react-native'
+import {dataChange} from '../../firebase';
+
+
+
 import {
   FETCHING_SUCCESS,
   FETCHING_ERROR,
@@ -9,6 +14,9 @@ import {
   SIGN_OUT,
   HANDLE_SELECT_CATEGORIES_CUSTOM
 } from './actionTypes';
+
+const CANAL_REF = 'usuarios/tvrhpaKEpTPW2l0kiCVTo1SD6Rr2';
+
 export const loadNews = news => ({
   type: FETCHING_SUCCESS,
   payload: { news, fetching: false }
@@ -42,6 +50,22 @@ export const Fetcher = q => {
   };
 };
 export const FetcherCategories = q => {
+  if (q == 'canal') {
+  console.log('Fecther Categories',{q})
+    return dispatch => {
+      dispatch(fetchingCategories());
+      dataChange(CANAL_REF)
+      .then(snapshot=>{
+        console.log({data:snapshot.val()})
+        Alert.alert('Hola Actions.js',JSON.stringify(snapshot.val()))
+        dispatch(loadNewsCategories([]))
+      })
+      .catch((error)=>{
+          dispatch(errorFetchingCategories(error))
+      })
+     
+    };
+  }
   return dispatch => {
     dispatch(fetchingCategories());
     axios(generateURL({ q }))
@@ -68,11 +92,11 @@ export const SignUp = ({ password, user, email }) => ({
   type: SIGN_UP,
   payload: { password, user, email }
 });
-export const SignOut = ({ key,...args }) => ({
+export const SignOut = ({ key, ...args }) => ({
   type: SIGN_OUT,
-  payload: { key,...args }
+  payload: { key, ...args }
 });
-export const HandleSelectCustomCategorie = ( id ) => ({
+export const HandleSelectCustomCategorie = id => ({
   type: HANDLE_SELECT_CATEGORIES_CUSTOM,
   payload: { id }
 });
