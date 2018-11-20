@@ -14,7 +14,7 @@ const BuscarGif = ({mostrarTexto}) => (
      width:200,
      height:200
    }}
-   source={require('../../../assets/loading-book.gif')}/>
+   source={require('../../../assets/buscar.gif')}/>
    {
      mostrarTexto&&null
    //<Text style={styles.text}>No se encontraron resultados</Text>
