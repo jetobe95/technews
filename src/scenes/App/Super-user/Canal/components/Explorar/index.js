@@ -20,14 +20,12 @@ class ExplorarContainer extends Component {
         user: { uid }
       }
     } = this.props;
-    Alert.alert('Save Favorito line 18 ', uid);
     if (like) {
       try {
         await create(`usuarios/${uid}/favoritos/${item.title}`).remove();
 
-        Alert.alert('Removido');
       } catch (error) {
-        Alert.alert('Error line 29', JSON.stringify(error));
+        Alert.alert('Error', JSON.stringify(error));
       }
     }
 
@@ -36,13 +34,11 @@ class ExplorarContainer extends Component {
         ...item
       }
     };
-    Alert.alert('Liked', JSON.stringify({ json }));
     console.log({ json });
     try {
       await create(`usuarios/${uid}/favoritos`).update(json);
-      Alert.alert('Actilizado');
     } catch (error) {
-      Alert.alert('Error line 47', JSON.stringify(error));
+      Alert.alert('Error', JSON.stringify(error));
     }
     return;
   };
