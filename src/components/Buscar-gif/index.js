@@ -1,5 +1,5 @@
 import React from "react";
-import { 
+import {
   View,
   Text,
   StyleSheet,
@@ -9,15 +9,15 @@ import {
 const screen=Dimensions.get('window')
 const BuscarGif = ({mostrarTexto}) => (
   <View style={styles.container}>
-   <Image 
+   <Image
    style={{
      width:200,
      height:200
    }}
-   source={require('../../../assets/buscar.gif')}/>
+   source={require('../../../assets/loading-book.gif')}/>
    {
      mostrarTexto&&
-   <Text style={styles.text}>No se encontraron resultados</Text>
+   //<Text style={styles.text}>No se encontraron resultados</Text>
    }
   </View>
   )
