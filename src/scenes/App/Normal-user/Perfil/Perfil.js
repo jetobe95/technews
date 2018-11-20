@@ -45,7 +45,7 @@ class Perfil extends Component {
 
     return (
       <ImageBackground
-        style={{ flex: 1 }} source={require('.././././assets/wallpaper.jpg')}>
+        style={{ flex: 1 }} source={require('../../../../../assets/wallpaper.jpg')}>
 
         <View style={styles.container}>
           <View style={{justifyContent:'center',alignItems:'center'}}>
