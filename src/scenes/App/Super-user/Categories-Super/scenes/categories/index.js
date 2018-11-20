@@ -25,7 +25,7 @@ class Categories extends Component {
 
     return (
       <Fragment>
-        <Modal handleOpen={this.handleOpen} isOpen={this.state.isOpen}/>
+        <Modal handleOpen={this.handleOpen} isOpen={this.state.isOpen} user={this.props.User}/>
       <FlatList
       ListEmptyComponent={()=><EmptyList/>}
       style={{ flex: 1,height,backgroundColor:'#252525' }}
