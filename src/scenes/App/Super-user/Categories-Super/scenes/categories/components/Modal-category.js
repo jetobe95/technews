@@ -1,79 +1,62 @@
-import React, { Component, Fragment } from 'react';
-import { Modal, View, Text, Dimensions, TouchableOpacity	,Platform } from 'react-native';
-import { Input, Label, Form, Button, Item, Header } from 'native-base';
+import React, { Component } from 'react';
+import { Modal, View, Text, Dimensions, TouchableOpacity } from 'react-native';
+import { Input, Label, Form, Button, Item } from 'native-base';
 import { EvilIcons } from '@expo/vector-icons';
-
 import CategoryListPicker from './category-list-picker';
 //Datos de categorias
-import { categorias } from '../components/datos-de-categoria.json';
-import colors from '../../../../../../../../assets/colors';
-
+import {squares} from '../datoscategorias';
 const screen = Dimensions.get('window');
 const width = screen.width,
   height = screen.height;
-
 export default class ModalCategory extends Component {
   render() {
     const { isOpen, handleOpen } = this.props;
     return (
-      <Fragment>
-        <Modal
-          visible={isOpen}
-          onRequestClose={() => {
-            console.log('Modal has been closed.');
+      <Modal
+        visible={isOpen}
+        onRequestClose={() => {
+          console.log('Modal has been closed.');
+        }}
+        transparent
+        animationType="slide"
+      >
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: '#656565',
+            justifyContent: 'space-evenly',
+            alignItems: 'center'
           }}
-          transparent
-          animationType="slide"
         >
-          <Header 
-          androidStatusBarColor='transparent'
-          span={Platform.OS=='ios'} 
-          style={{ backgroundColor: colors.secundary }}>
-            <Text
-              style={{ color: 'white', fontSize: 27, fontFamily: 'Roboto' }}
-            >
-              Lista de Categorias
-            </Text>
-               <TouchableOpacity
-                onPress={() => handleOpen()}
-                style={{ alignItems:'center'}}
-              >
-                <EvilIcons name="close" style={{ fontSize: 25 }} />
-              </TouchableOpacity>
-          </Header>
           <View
             style={{
-              flex: 1,
-              backgroundColor: '#656565',
-              justifyContent: 'space-evenly',
+              backgroundColor: 'white',
+              width: width * 0.9,
+              height: height * 0.9,
+              borderRadius: 20,
+              justifyContent: 'center',
               alignItems: 'center'
             }}
           >
+            <TouchableOpacity
+              onPress={() => handleOpen()}
+              style={{ position: 'absolute', top: 0, right: 0, padding: 10 }}
+            >
+              <EvilIcons name="close" style={{ fontSize: 25 }} />
+            </TouchableOpacity>
             <View
               style={{
-                backgroundColor: 'white',
-                width: width,
-                height: height,
-                borderRadius: 20,
+                height: '90%',
+                width: '100%',
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
             >
-           
-              <View
-                style={{
-                  height: '90%',
-                  width: '100%',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <CategoryListPicker data={categorias} />
-              </View>
+              <CategoryListPicker data={squares} />
             </View>
           </View>
-        </Modal>
-      </Fragment>
+        </View>
+      </Modal>
     );
   }
 }

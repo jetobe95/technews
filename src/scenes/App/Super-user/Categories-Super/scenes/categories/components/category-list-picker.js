@@ -13,13 +13,13 @@ const screen = Dimensions.get('window');
 const CategorieListPicker = ({ data }) => (
     <FlatList
       contentContainerStyle={{
-        width: screen.width,
-        alignItems: 'center',
+        width: '150%',
+        alignItems: 'stretch',
         justifyContent: 'center'
       }}
       data={data}
       renderItem={({ item }) => <CategorieListItem width={screen.width} {...item} />}
-      keyExtractor={item => item.label}
+      keyExtractor={item => item.id}
     />
 );
 export default CategorieListPicker;

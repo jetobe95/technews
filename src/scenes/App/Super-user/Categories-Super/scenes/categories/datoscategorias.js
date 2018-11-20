@@ -15,7 +15,7 @@ export const squares = [
     subtitle: "Lo mas reciente",
     q: "Aplicación",
     image: require(images+"app.jpg"),
-    visible: true
+    visible: false
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const squares = [
     subtitle: "Lo mas reciente",
     q: "Android",
     image: require(images+"android.jpg"),
-    visible: true
+    visible: false
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const squares = [
     subtitle: "Lo mas reciente",
     q: "Avances Tecnológicos",
     image: require(images+"avancestecnológicos.png"),
-    visible: true
+    visible: false
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const squares = [
     subtitle: "Lo mas reciente",
     q: "Celulares",
     image: require(images+"Celulares.jpg"),
-    visible: true
+    visible: false
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const squares = [
     subtitle: "Lo mas reciente",
     q: "Ciberseguridad",
     image: require(images+"ciberseguridad.jpg"),
-    visible: true
+    visible: false
   },
   {
     id: 6,
