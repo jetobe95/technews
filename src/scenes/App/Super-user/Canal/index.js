@@ -8,7 +8,7 @@ const Stack = createStackNavigator(
     Explorar: {
       screen: Explorar,
       navigationOptions: {
-        title: 'Explorar'
+        title: 'Canal'
       }
     },
     WebView: {
