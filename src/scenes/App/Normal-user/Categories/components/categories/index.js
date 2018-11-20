@@ -1,22 +1,14 @@
-import { Grid, Row } from 'native-base';
-import React, { Component, Fragment } from 'react';
-import {
-  ScrollView,
-  FlatList,
-  Dimensions,
-  View,
-  Text,
-  TouchableOpacity
-} from 'react-native';
-import { connect } from 'react-redux';
 import _ from 'lodash';
+import React, { Component, Fragment } from 'react';
+import { Dimensions, FlatList, Text, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { HandleSelectCustomCategorie } from '../../../../../../services/redux/actions/actions';
+import Modal from '../../components/categories/components/Modal-category';
+import EmptyList from '../Empty-list';
+import ImageTitle from './components/Image-title';
 
 const { width, height } = Dimensions.get('window');
 
-import ImageTitle from './components/Image-title';
-import EmptyList from '../Empty-list';
-import Modal from '../../components/categories/components/Modal-category';
-import { squares } from '../categories/components/datoscategorias';
 class Categories extends Component {
   state = {
     isOpen: false
@@ -26,20 +18,28 @@ class Categories extends Component {
   };
   render() {
     const {
-      User: { categories }
+      User: { categories },
+      toggleCategories
     } = this.props;
     const data = _.filter(categories, cate => cate.visible === true);
 
     return (
       <Fragment>
-        <Modal handleOpen={this.handleOpen} isOpen={this.state.isOpen} />
+        <Modal
+          categories={categories}
+          handleOpen={this.handleOpen}
+          toggleCategoria={toggleCategories}
+          isOpen={this.state.isOpen}
+          user={this.props.User}
+        />
+        />
         <FlatList
           ListEmptyComponent={() => <EmptyList />}
           style={{ flex: 1, height, backgroundColor: '#252525' }}
           numColumns={2}
           contentContainerStyle={{ marginRight: 1, flexDirection: 'column' }}
           columnWrapperStyle={{ flex: 1 }}
-          data={squares}
+          data={data}
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => (
             <ImageTitle
@@ -76,5 +76,13 @@ function MapsStateToProps({ User }) {
     User
   };
 }
+function MapDispatchToProps(dispatch) {
+  return {
+    toggleCategories: id => dispatch(HandleSelectCustomCategorie(id))
+  };
+}
 
-export default connect(MapsStateToProps)(Categories);
+export default connect(
+  MapsStateToProps,
+  MapDispatchToProps
+)(Categories);

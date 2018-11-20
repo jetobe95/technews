@@ -14,10 +14,12 @@ import {
   TextInput,
   View
 } from 'react-native';
+import _ from 'lodash'
+import {generarCategoria} from '../../../services/datoscategorias'
 import { connect } from 'react-redux';
 import color from '../../../../assets/colors/index';
 import ButtonNews from '../../../components/Button/index';
-import { SignIn, SignOut } from '../../../services/redux/actions/actions';
+import { SignIn, SignOut, cargarCategorias} from '../../../services/redux/actions/actions';
 import { signin, list } from '../../../services/firebase';
 import style from './styles';
 import LoadingBook from '../../../components/book-loading';
@@ -26,8 +28,8 @@ const styles = StyleSheet.create(style);
 
 class SignInC extends Component {
   state = {
-    user: 'admin@gmail.com',
-    password: '123456',
+    user: 'alto.951@hotmail.com',
+    password: 'Colombia2010',
     loadingRight: false,
     ready: true
   };
@@ -39,7 +41,8 @@ class SignInC extends Component {
   SignIn = () => {
     const {
       User: { user: userLocal, password: passworLocal },
-      SignIn: Sign
+      SignIn: Sign,
+      CargarCategorias
     } = this.props;
     this.setState({ ready: false });
     const { user, password } = this.state;
@@ -47,10 +50,14 @@ class SignInC extends Component {
       .then(firebaseUser => {
         Sign(firebaseUser);
         list('usuarios/' + firebaseUser.user.uid).once('value', snap => {
+          const {categorias}=snap.val()
+          let nuevaCategoria=_.map(categorias,item=>({...generarCategoria(item.id),visible:item.visible}))
           this.setState({ ready: true });
           if (snap.val().super) {
+            CargarCategorias(nuevaCategoria)
             return this.props.navigation.navigate('ToAppStackNavigatorSuper');
           }
+            CargarCategorias(nuevaCategoria)
           return this.props.navigation.navigate('ToAppStackNavigator');
         });
       })
@@ -166,7 +173,8 @@ const MapStateToProps = ({ User }) => {
 };
 const MapDispatchToProps = dispatch => {
   return {
-    SignIn: user => dispatch(SignOut({ key: true, user: user.user }))
+    SignIn: user => dispatch(SignOut({ key: true, user: user.user })),
+    CargarCategorias:categorias=>dispatch(cargarCategorias(categorias))
   };
 };
 const SignUpWithRedux = connect(

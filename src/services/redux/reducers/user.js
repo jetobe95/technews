@@ -4,17 +4,17 @@ import {
   SIGN_IN,
   SIGN_UP,
   SIGN_OUT,
-  HANDLE_SELECT_CATEGORIES_CUSTOM
+  HANDLE_SELECT_CATEGORIES_CUSTOM,
+  CARGA_CATEGORIAS_FIREBASE
 } from '../actions/actionTypes';
-import InitialStateForCategories from '../../categories-custom';
+import { squares } from '../../datoscategorias';
 
 const InitialState = {
   user: '',
-
   photoURL: '',
   email: '',
   password: '',
-  categories: InitialStateForCategories,
+  categories: squares,
   key: false
 };
 
@@ -28,16 +28,25 @@ const UserReducer = (state = InitialState, action) => {
 
     case SIGN_UP:
       return { ...state, ...action.payload };
+
     case SIGN_OUT:
       return { ...state, ...action.payload };
+
     case HANDLE_SELECT_CATEGORIES_CUSTOM:
+      const { id } = payload;
+      const nuevasCategorias = _.map(categories, item => {
+        if (item.id == id) return { ...item, visible: !item.visible };
+        return item;
+      });
       return {
         ...state,
-        categories: _.map(categories||InitialStateForCategories, categorie => {
-          return payload.id === categorie.id
-            ? { ...categorie, visible: !categorie.visible }
-            : categorie;
-        })
+        categories: nuevasCategorias
+      };
+
+    case CARGA_CATEGORIAS_FIREBASE:
+      return {
+        ...action.payload,
+        ...state
       };
 
     default:

@@ -4,10 +4,11 @@ import _ from 'lodash';
 import { Item, Left, Right, ListItem, Radio } from 'native-base';
 import { Picker } from 'native-base';
 
-const ListItemComponent = ({ width, title,visible=true }) => {
+const ListItemComponent = ({ width, title,visible,onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>onPress()}>
       <ListItem
+      onPress={()=>onPress()}
         style={{
           width: '100%',
           justifyContent: 'center',
@@ -22,7 +23,13 @@ const ListItemComponent = ({ width, title,visible=true }) => {
           <Text style={styles.label}>{title}</Text>
         </Left>
         <Right>
-          <Radio color={'#f0ad4e'} selectedColor="#5cb85c" selected={true} />
+          <Radio 
+          
+          style={{fontSize:30}}
+          onPress={()=>onPress()}
+          color={'#f0ad4e'} 
+          selectedColor="#5cb85c" 
+          selected={visible} />
         </Right>
       </ListItem>
     </TouchableOpacity>

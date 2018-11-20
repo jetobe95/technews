@@ -10,7 +10,7 @@ import {
 import {Title,Header} from 'native-base'
 import CategorieListItem from './categorie-Picker-item';
 const screen = Dimensions.get('window');
-const CategorieListPicker = ({ data }) => (
+const CategorieListPicker = ({ data,toggleVisible }) => (
     <FlatList
       contentContainerStyle={{
         width: '150%',
@@ -18,7 +18,14 @@ const CategorieListPicker = ({ data }) => (
         justifyContent: 'center'
       }}
       data={data}
-      renderItem={({ item }) => <CategorieListItem width={screen.width} {...item} />}
+      renderItem={({ item }) => {
+      return <CategorieListItem 
+      onPress={()=>toggleVisible(item.id)} 
+      width={screen.width} 
+      {...item} 
+      />}
+
+      }
       keyExtractor={item => item.id}
     />
 );

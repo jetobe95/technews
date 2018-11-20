@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { Modal, View, Text, Dimensions, TouchableOpacity } from 'react-native';
-import { Input, Label, Form, Button, Item } from 'native-base';
+import {
+  Modal,
+  View,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+  Platform,
+  Alert
+} from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 import CategoryListPicker from './category-list-picker';
+import _ from 'lodash';
+import { squares } from '../datoscategorias';
 
-import {squares} from '../datoscategorias';
 const screen = Dimensions.get('window');
 const width = screen.width,
   height = screen.height;
@@ -12,35 +20,33 @@ import { categorias } from '../components/datos-de-categoria.json';
 import colors from '../../../../../../../../assets/colors';
 import { create } from '../../../../../../../services/firebase';
 
-const screen = Dimensions.get('window');
-const width = screen.width,
-  height = screen.height;
-
-
 export default class ModalCategory extends Component {
-   SaveCategories=()=>{
-    let cate = {
-      categorias: categorias
-    };
+  SaveCategories = () => {
+    const categorias = _.chain(this.props.categories)
+      .map(item => ({ id: item.id, visible: item.visible }))
+      .value();
 
-    create(`usuarios/${this.props.user.user.uid}/`)
-    .update(cate)
-    .then(() => {
-      console.log('Se han guardado las categorias !!');
-    })
-    .catch(() => {              
-      console.log('Error al guardar categorias!')
-    });
+    create(`usuarios/${this.props.user.user.uid}/categorias`)
+      .set(categorias)
+      .then(() => {
+        console.log('Se han guardado las categorias !!');
+      })
+      .catch(() => {
+        console.log('Error al guardar categorias!');
+      });
     this.props.handleOpen();
-  }
+  };
+
+  // Seccion de los item de las categorias
+  toggleVisible = id => {
+    return this.props.toggleCategoria(id);
+  };
   render() {
-    const { isOpen, handleOpen, user } = this.props;
+    const { isOpen, handleOpen, user, categories } = this.props;
     return (
       <Modal
         visible={isOpen}
-        onRequestClose={() => {
-          console.log('Modal has been closed.');
-        }}
+        onRequestClose={() => this.SaveCategories()}
         transparent
         animationType="slide"
       >
@@ -52,16 +58,6 @@ export default class ModalCategory extends Component {
             alignItems: 'center'
           }}
         >
-          <Header 
-          androidStatusBarColor='transparent'
-          span={Platform.OS=='ios'} 
-          style={{ backgroundColor: colors.secundary }}>
-            <Text
-              style={{ color: 'white', fontSize: 27, fontFamily: 'Roboto' }}
-            >
-              Lista de Categorias
-            </Text>
-          </Header>
           <View
             style={{
               backgroundColor: 'white',
@@ -86,7 +82,10 @@ export default class ModalCategory extends Component {
                 alignItems: 'center'
               }}
             >
-              <CategoryListPicker data={squares} />
+              <CategoryListPicker
+                toggleVisible={this.toggleVisible}
+                data={categories}
+              />
             </View>
           </View>
         </View>
