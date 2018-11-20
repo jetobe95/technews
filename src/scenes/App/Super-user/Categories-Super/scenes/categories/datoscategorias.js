@@ -1,4 +1,4 @@
-const images='../../../../../../../../assets/images/'
+const images="../../../../../../../assets/images/"
 
 export const squares = [
   {

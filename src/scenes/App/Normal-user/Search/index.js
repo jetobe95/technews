@@ -20,11 +20,10 @@ import { createStackNavigator } from 'react-navigation';
 import _ from 'lodash';
 import { Constants } from 'expo';
 
-
 import NavigationConfig from '../../../../components/Header';
-import CardnewV2 from '../../../../components/News/components/Card-of-new/index';
+import CardnewV2 from '../../../../components/News/components/Card-of-new-normal-user';
 import WebView from '../../../../components/Webview/index';
-
+import BuscarGif from '../../../../components/Buscar-gif';
 
 const generateURL = ({ language = 'es', q, pageSize = 5, page = 1 }) => {
   if (q == 'technology') {
@@ -56,12 +55,12 @@ class Buscar extends Component {
 
   render() {
     const { list: data, NoResuls, loading, search } = this.state;
+    const mostrarText= NoResuls && search !== ''
     return (
       <Container
-
         style={{
           paddingTop: Constants.statusBarHeight,
-          margin:0
+          margin: 0
         }}
       >
         <Header searchBar rounded>
@@ -96,15 +95,11 @@ class Buscar extends Component {
         </Header>
 
         <FlatList
+          ListEmptyComponent={<BuscarGif mostrarTexto={mostrarText}/>}
           refreshControl={
             <RefreshControl refreshing={loading} onRefresh={this._Search} />
           }
-          ListHeaderComponent={() => (
-            <View>
-              {NoResuls &&
-                search !== '' && <Text>No se Encontraron resultados</Text>}
-            </View>
-          )}
+         
           data={data}
           renderItem={({ item }) => <CardnewV2 {...this.props} {...item} />}
           keyExtractor={item => item.url}

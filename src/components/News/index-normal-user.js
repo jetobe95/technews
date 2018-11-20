@@ -10,7 +10,7 @@ import {
 import { object, func } from 'prop-types';
 
 
-import CardnewV2 from './components/Card-of-new/index';
+import CardnewV2 from './components/Card-of-new-normal-user/index';
 
 News.propTypes = {
   News: object,

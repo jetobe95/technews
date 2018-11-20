@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Alert} from 'react-native'
 import {dataChange} from '../../firebase';
-
+import _ from 'lodash'
 
 
 import {
@@ -56,9 +56,8 @@ export const FetcherCategories = q => {
       dispatch(fetchingCategories());
       dataChange(CANAL_REF)
       .then(snapshot=>{
-        console.log({data:snapshot.val()})
-        Alert.alert('Hola Actions.js',JSON.stringify(snapshot.val()))
-        dispatch(loadNewsCategories([]))
+        const news=_.map(snapshot.val().favoritos,item=>item)
+        dispatch(loadNewsCategories({articles:news}))
       })
       .catch((error)=>{
           dispatch(errorFetchingCategories(error))
@@ -69,7 +68,11 @@ export const FetcherCategories = q => {
   return dispatch => {
     dispatch(fetchingCategories());
     axios(generateURL({ q }))
-      .then(({ data: news }) => dispatch(loadNewsCategories(news)))
+      .then(({ data: news }) => {
+        console.log('Line 74',news)
+        dispatch(loadNewsCategories(news))
+
+        })
       .catch(error => dispatch(errorFetchingCategories(error)));
   };
 };

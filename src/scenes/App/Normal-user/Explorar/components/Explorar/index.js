@@ -1,7 +1,7 @@
 import { func } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NewList from '../../../../../../components/News/index';
+import NewList from '../../../../../../components/News/index-normal-user';
 import { Fetcher } from '../../../../../../services/redux/actions/actions';
 
 class ExplorarContainer extends Component {

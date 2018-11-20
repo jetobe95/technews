@@ -5,7 +5,7 @@ import {
   FetcherCategories,
   ClearNewsCategories
 } from '../../../../../../../services/redux/actions/actions';
-import NewsList from '../../../../../../../components/News/index';
+import NewsList from '../../../../../../../components/News/index-normal-user';
 class Categorias extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('q', 'News')
