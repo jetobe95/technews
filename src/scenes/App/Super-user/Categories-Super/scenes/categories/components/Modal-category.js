@@ -29,7 +29,7 @@ export default class ModalCategory extends Component {
       console.log('Se han guardado las categorias !!');
     })
     .catch(() => {              
-      console.log('Error al guardar categorias')
+      console.log('Error al guardar categorias!')
     });
     this.props.handleOpen();
   }
