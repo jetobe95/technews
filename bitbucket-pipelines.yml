@@ -4,14 +4,7 @@ definitions:
   caches:
     npm: ~/.npm
 pipelines:
-  default:
-    - step:
-        name: Validate code
-        caches:
-          - npm
-        script:
-          - npm ci
-          
+         
   branches:
     master:
       - step:
