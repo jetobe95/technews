@@ -45,7 +45,7 @@ class Perfil extends Component {
 
     return (
       <ImageBackground
-        style={{ flex: 1 }} source={{ uri: "https://digitalpm.es/wp-content/uploads/2017/11/3881153-big-data-wallpaper.jpg" }}>
+        style={{ flex: 1 }} source={require('.././././assets/wallpaper.jpg')}>
 
         <View style={styles.container}>
           <View style={{justifyContent:'center',alignItems:'center'}}>
@@ -57,7 +57,7 @@ class Perfil extends Component {
             }}>
               <Image source={{ uri }} style={{ height: 94, width: 94 }} />
             </TouchableOpacity>
-           
+
 
           </View>
           <View style={{ alignItems: 'center' }}>
