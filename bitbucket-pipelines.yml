@@ -1,16 +1,26 @@
+---
+image: node:alpine
 definitions:
   caches:
-    npm: $HOME/.npm
-image: node:alpine
+    npm: ~/.npm
 pipelines:
   default:
     - step:
-        name: Deploy to Expo
-        trigger: automatic
-        deployment: staging
+        name: Validate code
         caches:
           - npm
         script:
-          - npm install
-          - npx exp login -u jetobe95 -p Colombia2010
-          - npx exp publish --non-interactive
+          - npm ci
+          
+  branches:
+    master:
+      - step:
+          name: Deploy to Expo
+          deployment: production
+          caches:
+            - npm
+          script:
+            - apk add --no-cache bash
+            - npm ci
+            - npx expo login --username $EXPO_USERNAME --password $EXPO_PASSWORD
+            - npx expo publish
